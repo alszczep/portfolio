@@ -1,0 +1,23 @@
+import pl_flag from './../images/pl_flag.svg';
+import uk_flag from './../images/uk_flag.svg';
+import React, { FC, useContext, useEffect, useRef } from "react";
+import { LangContext } from '../App';
+
+const Footer: FC<any> = (props): JSX.Element => {
+    const { footer } = useContext(LangContext);
+    const checkBoxRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if(localStorage.getItem('animations') && checkBoxRef && checkBoxRef.current)
+            checkBoxRef.current.checked = props.animations;
+    }, [props])
+    return (<footer className='footer'>
+        <section className='animationsWrapper'>
+            <label className='animationsLabel' htmlFor='animations'>{footer.animations}</label>
+            <input className='animationsCheckBox' type='checkbox' value='animations' name='animations' ref={checkBoxRef} onClick={() => {props.setAnimations(!props.animations)}}/>
+        </section>
+        <img src={uk_flag} alt='eng' onClick={() => {props.setLang('eng')}}/>
+        <img src={pl_flag} alt='pl' onClick={() => {props.setLang('pl')}}/>
+    </footer>)
+}
+
+export default Footer;

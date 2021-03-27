@@ -1,0 +1,27 @@
+@import './mixins.scss';
+
+$navBgColor: rgba(0, 0, 0, 0.14);
+$navHoverBgColor: rgba(0, 0, 0, 0.20);
+
+nav.navigation{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: $navBgColor;
+    z-index: 3;
+    a{
+        color: white;
+        display: inline-block;
+        text-align: center;
+        width: 25%;
+        box-sizing: border-box;
+        font-size: 170%;
+        height: 100%;
+        padding: 20px;
+        text-decoration: none;
+    }
+    a:hover{
+        background-color: $navHoverBgColor;
+    }
+}

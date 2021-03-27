@@ -1,0 +1,20 @@
+@import './mixins.scss';
+
+main{
+    z-index: 1;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+main.mainPage{
+    @include flex-box(column, center, center);
+    h1, h2{
+        font-weight: 100;
+    }
+    h1{
+        font-size: 450%;
+    }
+    h2{
+        font-size: 390%;
+    }
+}

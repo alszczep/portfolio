@@ -1,0 +1,38 @@
+@import './mixins.scss';
+
+$footerBgColor: rgba(0, 0, 0, 0.14);
+$footerHeight: 30px;
+$imageHeight: ($footerHeight - 10px);
+
+footer.footer{
+    @include flex-box(row, flex-end, center);
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: $footerHeight;
+    background-color: $footerBgColor;
+    .animationsWrapper{
+        @include flex-box(row, flex-start, center);
+        margin-left: 5px;
+        margin-right: auto;
+        height: 100%;
+        .animationsLabel{
+            line-height: $footerHeight;
+            color: white;
+            height: 100%;
+        }
+        .animationsCheckBox{
+            background-color: rgb(0, 0, 63);
+            margin: 4px;
+        }
+    }
+    img{
+        height: $imageHeight;
+        margin: 5px;
+        border-radius: 2px;
+        width: ($imageHeight * 2);
+    }
+    img:hover{
+        filter: brightness(0.85);
+    }
+}
