@@ -1,6 +1,7 @@
 import pl_flag from './../images/pl_flag.svg';
 import uk_flag from './../images/uk_flag.svg';
 import React, { FC, useContext, useEffect, useRef } from "react";
+import { SiHackerrank, SiCodewars, SiGithub} from 'react-icons/si';
 import { LangContext } from '../App';
 
 const Footer: FC<any> = (props): JSX.Element => {
@@ -12,11 +13,16 @@ const Footer: FC<any> = (props): JSX.Element => {
     }, [props])
     return (<footer className='footer'>
         <section className='animationsWrapper'>
-            <label className='animationsLabel' htmlFor='animations'>{footer.animations}</label>
+            <label className='animationsLabel' htmlFor='animations' onClick={() => {props.setAnimations(!props.animations)}}>{footer.animations}</label>
             <input className='animationsCheckBox' type='checkbox' value='animations' name='animations' ref={checkBoxRef} onClick={() => {props.setAnimations(!props.animations)}}/>
         </section>
-        <img src={uk_flag} alt='eng' onClick={() => {props.setLang('eng')}}/>
-        <img src={pl_flag} alt='pl' onClick={() => {props.setLang('pl')}}/>
+        <section className='externalLinks'>
+            <a target='_blank' href='https://github.com/alszczep'><SiGithub color='white'/></a>
+        </section>
+        <section className='langImages'>
+            <img src={uk_flag} alt='eng' onClick={() => {props.setLang('eng')}}/>
+            <img src={pl_flag} alt='pl' onClick={() => {props.setLang('pl')}}/>
+        </section>
     </footer>)
 }
 

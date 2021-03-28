@@ -8,8 +8,11 @@ import { isDesktop, isMobile } from "react-device-detect";
 import { VantaOptionsInterface } from './interfaces/VantaOptionsInterface';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
 
 export const LangContext = React.createContext(engData);
+export const AnimationsContext = React.createContext(true);
 
 const calculateOptions = (): VantaOptionsInterface => {
   if(isMobile){
@@ -28,17 +31,19 @@ const calculateOptions = (): VantaOptionsInterface => {
 
 const App: FC = (): JSX.Element => {
   const [vantaEffect, setVantaEffect] = useState<any>(0)
-  const [animations, setAnimations] = useState(false);
+  const [animations, setAnimations] = useState(true);
   const [options, setOptions] = useState<VantaOptionsInterface>(calculateOptions());
   const [lang, setLang] = useState<string>();
   useEffect(() => {
     if(localStorage.getItem('animations'))
       setAnimations(localStorage.getItem('animations') === 'true');
+    else
+      setAnimations(true);
     setOptions(calculateOptions());
     if(localStorage.getItem('lang'))
       setLang(localStorage.getItem('lang')!);
     else
-      setAnimations(true);
+      setLang('eng');
   }, [])
   useEffect(() => {
     if (!vantaEffect) {
@@ -77,24 +82,26 @@ const App: FC = (): JSX.Element => {
   }, [animations, options.waveSpeed, vantaEffect])
   return (
     <LangContext.Provider value={lang === 'pl'? plData: engData}>
-      <Router>
-        <Nav/>
-        <Switch>
-          <Route path='/skills'>
-            skills
-          </Route>
-          <Route path='/projects'>
-            projects
-          </Route>
-          <Route path='/contact'>
-            contact
-          </Route>
-          <Route path='/'>
-            <MainPage/>
-          </Route>
-        </Switch>
-        <Footer setLang={setLang} setAnimations={setAnimations} animations={animations}/>
-      </Router>
+      <AnimationsContext.Provider value={animations}>
+        <Router>
+          <Nav/>
+          <Switch>
+            <Route path='/skills'>
+              <Skills/>
+            </Route>
+            <Route path='/projects'>
+              <Projects/>
+            </Route>
+            <Route path='/contact'>
+              contact
+            </Route>
+            <Route path='/'>
+              <MainPage/>
+            </Route>
+          </Switch>
+          <Footer setLang={setLang} setAnimations={setAnimations} animations={animations}/>
+        </Router>
+      </AnimationsContext.Provider>
     </LangContext.Provider>
   );
 }

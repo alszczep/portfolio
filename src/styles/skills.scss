@@ -1,0 +1,49 @@
+$iconSize: 100px;
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+main.skillsPage{
+    width: 60%;
+    height: unset;
+    .skillIcon{
+        width: $iconSize;
+        height: $iconSize;
+        padding: 15px;
+        margin: 15px;
+        border-radius: 5px;
+        background-color: rgba(15, 8, 31, 0.808);
+        svg{
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .skillIcon.zoom{
+        animation-name: zoom;
+        animation-duration: 0.2s;
+        animation-timing-function: linear;
+        transform: scale(1.1);
+        svg{
+            filter: invert(10%);
+        }
+    }
+    .skillIcon.active{
+        animation-name: rotate;
+        animation-duration: 0.5s;
+        animation-timing-function: ease;
+        transform: rotate(360deg);
+    }
+}

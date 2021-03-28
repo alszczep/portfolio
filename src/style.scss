@@ -2,6 +2,9 @@
 @import './styles/main.scss';
 @import './styles/nav.scss';
 @import './styles/footer.scss';
+@import './styles/skills.scss';
+@import './styles/projects.scss';
+@import './styles/mixins.scss';
 
 html, body{
   overflow-x: hidden;
@@ -16,4 +19,8 @@ body{
     height: 100vh;
     width: 100vw;
   }
+}
+
+#root{
+  @include flex-box(column, center, center);
 }
