@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { projectsData } from "../data/projectsData";
 import ProjectsDesc from "./projects/ProjectsDesc";
 import ProjectsSlider from "./projects/ProjectsSlider";
@@ -6,6 +6,9 @@ import ProjectsSlider from "./projects/ProjectsSlider";
 const mainMargin = 15;
 
 const Projects: FC<any> = (): JSX.Element => {
+    const projectsCount = projectsData.length;
+    const [projectId, setProjectId] = useState(0);
+    const [projectsList, setProjectsList] = useState(projectsData);
     const resizeHandler = () => {
         if(document.getElementsByTagName('main')[0]){
             let projectsPageElement = document.getElementsByTagName('main')[0];
@@ -26,8 +29,8 @@ const Projects: FC<any> = (): JSX.Element => {
         resizeHandler();
     })
     return (<main className='projectsPage'>
-        <ProjectsSlider/>
-        <ProjectsDesc/>
+        <ProjectsSlider setProjectId={setProjectId} projectsList={projectsList} setProjectsList={setProjectsList} projectsCount={projectsCount}/>
+        <ProjectsDesc project={projectsData[projectId]}/>
     </main>)
 }
 

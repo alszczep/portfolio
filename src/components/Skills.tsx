@@ -1,6 +1,5 @@
-import React, { FC, useContext, useRef } from "react";
+import React, { FC } from "react";
 import { skillsData } from "../data/skillsData";
-import { LangContext } from './../App';
 import IconBox from "./IconBox";
 
 const Skills: FC = (): JSX.Element => {

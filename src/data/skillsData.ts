@@ -1,4 +1,4 @@
-import { SiTypescript, SiVisualstudiocode, SiReact, SiNetlify, SiMysql, SiLinkedin, SiJest, SiJavascript, SiHtml5, SiHeroku, SiHackerrank, SiGit, SiGithub, SiCss3} from 'react-icons/si';
+import { SiTypescript, SiVisualstudiocode, SiReact, SiMysql, SiJest, SiJavascript, SiHtml5, SiGit, SiCss3} from 'react-icons/si';
 import { FaSass } from 'react-icons/fa';
 export const skillsData = [
     {

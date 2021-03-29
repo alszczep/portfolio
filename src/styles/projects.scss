@@ -2,9 +2,13 @@
 
 main.projectsPage{
     section.projectsSlider{
+        background-color: rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
         @include flex-box(row, center, center);
         border-radius: 10px;
         height: 100px;
+        width: 100%;
+        margin-bottom: 15px;
         svg{
             height: 100%;
             width: 25px;
@@ -19,8 +23,108 @@ main.projectsPage{
         svg:hover{
             background-color: rgba(255, 255, 255, 0.011);
         }
+        section.projectsList{
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            img{
+                height: 100%;
+            }
+            img.currentProject{
+                box-sizing: border-box;
+                border: 3px solid black;
+            }
+        }
     }
     section.projectsDesc{
-
+        background-color: rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
+        @include flex-box(row, center, center);
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        h1.projectName{
+            margin-top: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            width: 100%;
+            font-size: 250%;
+            font-weight: 500;
+        }
+        section.projectLeft, section.projectRight{
+            height: 100%;
+            box-sizing: border-box;
+        }
+        section.projectLeft{
+            width: 70%;
+            font-size: 200%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        section.projectRight{
+            width: 30%;
+            padding-right: 3px;
+            img{
+                width: 100%;
+            }
+            section.projectTech{
+                @include flex-box(row, center, center);
+                flex-wrap: wrap;
+                width: 100%;
+                section.techBox{
+                    border-radius: 5px;
+                    background-color: rgba(0, 0, 0, 0.205);
+                    width: 80px;
+                    margin: 5px;
+                    h5{
+                        border-radius: 5px;
+                        box-sizing: border-box;
+                        text-align: center;
+                        width: 100%;
+                        border-bottom: 2px solid;
+                        padding: 3px;
+                        margin: 0px;
+                    }
+                }
+            }
+            section.gitAndDemo{
+                @include flex-box(row, center, center);
+                width: 100%;
+                margin-top: 10px;
+                a.projectLink{
+                    @include flex-box(row, center, center);
+                    width: 50%;
+                    text-decoration: none;
+                    color: white;
+                    border-radius: 10px;
+                    text-transform: capitalize;
+                    font-size: 150%;
+                    box-sizing: border-box;
+                    svg{
+                        padding: 3px;
+                        height: 50px;
+                        width: 50px;
+                    }
+                    h1{
+                        margin: 0px;
+                    }
+                }
+                a.githubLink{
+                    background-color: rgb(240,81,51);
+                    border: 3px solid darken(rgb(240,81,51), 15%);
+                }
+                a.githubLink:hover{
+                    background-color: darken(rgb(240,81,51), 15%);
+                }
+                a.demoLink{
+                    background-color: rgb(3, 3, 70);
+                    border: 3px solid lighten(rgb(3, 3, 70), 5%);
+                }
+                a.demoLink:hover{
+                    background-color: lighten(rgb(3, 3, 70), 5%);
+                }
+            }
+        }
     }
 }

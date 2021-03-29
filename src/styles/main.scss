@@ -25,6 +25,4 @@ main.skillsPage{
 }
 main.projectsPage{
     @include flex-box(column, flex-start, center);
-    background-color: rgba(0, 0, 0, 0.20);
-    border-radius: 10px;
 }

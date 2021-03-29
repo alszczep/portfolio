@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 
-export const LangContext = React.createContext(engData);
+export const LangContext = React.createContext({data: engData, lang: 'eng'});
 export const AnimationsContext = React.createContext(true);
 
 const calculateOptions = (): VantaOptionsInterface => {
@@ -81,7 +81,7 @@ const App: FC = (): JSX.Element => {
       vantaEffect.setOptions({waveSpeed: tempWaveSpeed});
   }, [animations, options.waveSpeed, vantaEffect])
   return (
-    <LangContext.Provider value={lang === 'pl'? plData: engData}>
+    <LangContext.Provider value={{data: (lang === 'pl'? plData: engData), lang: (lang? lang: 'eng')}}>
       <AnimationsContext.Provider value={animations}>
         <Router>
           <Nav/>
