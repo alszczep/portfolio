@@ -26,6 +26,11 @@ interface FormStateInterface{
     email: string;
     message: string;
 }
+const encode = (data: any) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
 const Contact: FC<any> = (props): JSX.Element => {
     const [formState, formDispatch] = useReducer(formReducer, formInitialState);
     useEffect(() => {
@@ -36,7 +41,8 @@ const Contact: FC<any> = (props): JSX.Element => {
         fetch("/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({ "form-name": "contact", 'firstName': formState.firstName, 'lastName': formState.lastName, 'emailName': formState.email, 'message': formState.message})
+            body: encode({ "form-name": "contact", ...formState})
+            //'firstName': formState.firstName, 'lastName': formState.lastName, 'emailName': formState.email, 'message': formState.message
         })
         .then(() => alert("Success!"))
         .catch(error => alert(error));
