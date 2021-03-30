@@ -55,8 +55,8 @@ const Contact: FC<any> = (props): JSX.Element => {
         .catch(error => alert(error));
     };
     return (<main className='contactPage'>
-        <form name='contact' method='post' data-netlify='true' data-netlify-honeypot='bot-field' onSubmit={handleSubmit}>
-            <input type='hidden' name='form-name' value='contact'/>
+        <form name='contact2' method='post' data-netlify='true' data-netlify-honeypot='bot-field' onSubmit={handleSubmit}>
+            <input type='hidden' name='form-name' value='contact2'/>
             <div hidden>
                 <input name='bot-field'/>
             </div>
