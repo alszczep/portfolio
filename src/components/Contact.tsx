@@ -41,15 +41,15 @@ const Contact: FC<any> = (props): JSX.Element => {
         fetch("/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...formState})
+            body: encode({ "form-name": "contact2", ...formState})
             //'firstName': formState.firstName, 'lastName': formState.lastName, 'emailName': formState.email, 'message': formState.message
         })
-        .then(() => alert("Success!"))
+        .then((response) => console.log(response.json()))
         .catch(error => alert(error));
     };
     return (<main className='contactPage'>
-        <form name='contact' method='post' data-netlify='true' data-netlify-honeypot='bot-field' onSubmit={handleSubmit}>
-            <input type='hidden' name='form-name' value='contact'/>
+        <form name='contact2' method='post' data-netlify='true' data-netlify-honeypot='bot-field' onSubmit={handleSubmit}>
+            <input type='hidden' name='form-name' value='contact2'/>
             <div hidden>
                 <input name='bot-field'/>
             </div>
