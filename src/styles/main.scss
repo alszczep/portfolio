@@ -26,3 +26,6 @@ main.skillsPage{
 main.projectsPage{
     @include flex-box(column, flex-start, center);
 }
+main.contactPage{
+    @include flex-box(column, center, center);
+}

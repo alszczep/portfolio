@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MainPage from './components/MainPage';
+import Home from './components/Home';
 import { engData } from './data/lang/eng';
 import { plData } from './data/lang/pl';
 import WAVES from 'vanta/dist/vanta.waves.min.js';
@@ -10,6 +10,8 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
+import { resizeHandler } from './modules/main-resize-handler';
 
 export const LangContext = React.createContext({data: engData, lang: 'eng'});
 export const AnimationsContext = React.createContext(true);
@@ -35,6 +37,7 @@ const App: FC = (): JSX.Element => {
   const [options, setOptions] = useState<VantaOptionsInterface>(calculateOptions());
   const [lang, setLang] = useState<string>();
   useEffect(() => {
+    window.addEventListener('resize', resizeHandler);
     if(localStorage.getItem('animations'))
       setAnimations(localStorage.getItem('animations') === 'true');
     else
@@ -93,10 +96,10 @@ const App: FC = (): JSX.Element => {
               <Projects/>
             </Route>
             <Route path='/contact'>
-              contact
+              <Contact/>
             </Route>
             <Route path='/'>
-              <MainPage/>
+              <Home/>
             </Route>
           </Switch>
           <Footer setLang={setLang} setAnimations={setAnimations} animations={animations}/>

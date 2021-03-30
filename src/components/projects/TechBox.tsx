@@ -16,6 +16,9 @@ const TechBox: FC<any> = (props): JSX.Element => {
             case 'JavaScript':
                 setColor('rgb(247,224,24)');
                 break;
+            case 'Jest':
+                setColor('rgb(153,66,91)');
+                break;
             default:
                 setColor('white');
                 break;

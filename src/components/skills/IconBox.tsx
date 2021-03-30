@@ -1,5 +1,5 @@
 import React, { FC, useContext, useRef } from "react";
-import { AnimationsContext } from './../App';
+import { AnimationsContext } from './../../App';
 
 const IconBox: FC<any> = (props): JSX.Element => {
     const iconRef = useRef<HTMLElement>(null);

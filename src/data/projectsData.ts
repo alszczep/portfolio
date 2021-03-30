@@ -11,7 +11,8 @@ export const projectsData = [
         tech: [
             'React',
             'TypeScript',
-            'Sass'
+            'Sass',
+            'Jest'
         ],
         image: ase, 
         github: 'https://github.com/alszczep/forum',
@@ -58,31 +59,5 @@ export const projectsData = [
         image: ase, 
         github: 'https://github.com/alszczep/portfolio',
         demo: ''
-    },
-    {
-        id: 4,
-        name: 'Anime search engine 4',
-        descPl: 'pl',
-        descEng: 'eng',
-        tech: [
-            'React',
-            'Sass'
-        ],
-        image: ase, 
-        github: '',
-        demo: ''
-    },
-    {
-        id: 5,
-        name: 'Anime search engine 5',
-        descPl: 'pl',
-        descEng: 'eng',
-        tech: [
-            'React',
-            'Sass'
-        ],
-        image: ase, 
-        github: '',
-        demo: ''
-    },
+    }
 ]

@@ -1,7 +1,7 @@
 import React, { FC, useContext } from "react";
 import { LangContext } from './../App';
 
-const MainPage: FC = (): JSX.Element => {
+const Home: FC = (): JSX.Element => {
     const { mainPage } = useContext(LangContext).data;
     return (<main className='mainPage'>
         <h1>{mainPage.title}</h1>
@@ -9,4 +9,4 @@ const MainPage: FC = (): JSX.Element => {
     </main>)
 }
 
-export default MainPage;
+export default Home;

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { skillsData } from "../data/skillsData";
-import IconBox from "./IconBox";
+import IconBox from "./skills/IconBox";
 
 const Skills: FC = (): JSX.Element => {
     return (<main className='skillsPage'>
