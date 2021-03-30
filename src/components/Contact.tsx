@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useReducer } from "react";
 import { resizeHandler } from "../modules/main-resize-handler";
+import qs from 'qs';
+import NetlifyForm from "react-netlify-form";
 
 const formReducer = (state: FormStateInterface, action: any) => {
     switch(action.type){
@@ -38,13 +40,18 @@ const Contact: FC<any> = (props): JSX.Element => {
     })
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        fetch("/contact", {
+        fetch(window.location.href + "/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...formState})
-            //'firstName': formState.firstName, 'lastName': formState.lastName, 'emailName': formState.email, 'message': formState.message
+            body: qs.stringify({ "form-name": "contact", "firstName": formState.firstName, "lastName": formState.lastName, "emailName": formState.email, "message": formState.message})
         })
-        .then(() => alert("Success!"))
+        .then(response => {
+            if (response.status > 199 && response.status < 300){
+                alert('succes');
+            } else {
+                alert('error');
+            } 
+          })
         .catch(error => alert(error));
     };
     return (<main className='contactPage'>
