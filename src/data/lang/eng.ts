@@ -11,5 +11,15 @@ export const engData = {
     },
     footer: {
         animations: 'Animations'
+    },
+    contactPage: {
+        contact: 'Contact',
+        sendSuccess: 'Message sent.',
+        sendError: 'An error occured while sending your message. Please try again.',
+        refresh: 'Refresh a page',
+        firstName: 'First name',
+        lastName: 'Last name',
+        message: 'Message',
+        send: 'Send'
     }
 }

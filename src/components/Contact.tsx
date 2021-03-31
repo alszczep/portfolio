@@ -4,10 +4,19 @@ import qs from 'qs';
 import { LangContext } from "../App";
 import { formInitialState, formReducer } from "../modules/form-reducer";
 
+//////////
+//POPRZENOSIC TEKST DO LANG
+//////////
+
+interface FormStatusInterface{
+    success: boolean;
+    text: string;
+}
+
 const Contact: FC<any> = (props): JSX.Element => {
-    const lang = useContext(LangContext).lang;
+    const langData = useContext(LangContext).data.contactPage;
     const [formState, formDispatch] = useReducer(formReducer, formInitialState);
-    const [formStatus, setFormStatus] = useState<string>();
+    const [formStatus, setFormStatus] = useState<FormStatusInterface>();
     useEffect(() => {
         resizeHandler();
     })
@@ -20,17 +29,22 @@ const Contact: FC<any> = (props): JSX.Element => {
         })
         .then(response => {
             if (response.status > 199 && response.status < 300){
-                setFormStatus(lang === 'pl'? 'Wiadomość została wysłana': 'Message sent.');
+                setFormStatus({success: true, text: langData.sendSuccess});
             } else {
-                setFormStatus(lang === 'pl'? 'Wystąpił błąd podczas wysyłania twojej wiadomości. Spróbuj ponownie.': 'An error occured while sending your message. Please try again.');
+                setFormStatus({success: false, text: langData.sendError});
             } 
           })
-        .catch(error => {setFormStatus(lang === 'pl'? 'Wystąpił błąd podczas wysyłania twojej wiadomości. Spróbuj ponownie.': 'An error occured while sending your message. Please try again.');});
+        .catch(error => {setFormStatus({success: false, text: langData.sendError})});
     };
-    if(formStatus)
+    const refreshPage = () => {
+        if(formStatus?.success === true)
+            formDispatch({type: 'CLEAR'});
+        setFormStatus({success: false, text: ''});
+    }
+    if(formStatus?.text)
         return(<main className='contactPage'>
-            <h2 className='statusText'>{formStatus}</h2>
-            <button className='statusButton' onClick={() => {setFormStatus('')}}>{lang === 'pl'? 'Odśwież stronę': 'Refresh a page'}</button>
+            <h2 className='statusText'>{formStatus.text}</h2>
+            <button className='statusButton' onClick={refreshPage}>{langData.refresh}</button>
         </main>);
     return (<main className='contactPage'>
         <form name='contact' method='post' data-netlify='true' data-netlify-honeypot='bot-field' onSubmit={handleSubmit}>
@@ -38,16 +52,16 @@ const Contact: FC<any> = (props): JSX.Element => {
             <div hidden>
                 <input name='bot-field'/>
             </div>
-            <h1>Contact</h1>
-            <input type='text' name='firstName' id='firstName' placeholder={lang === 'pl'? 'Imię': 'First Name'}
-            value={formState.firstName} onChange={(event: any) => { formDispatch({type: 'UPDATE_FIRST_NAME', payload: event.target.value}) }}/>
-            <input type='text' name='lastName' id='lastName' placeholder={lang === 'pl'? 'Nazwisko': 'Last Name'}
-            value={formState.lastName} onChange={(event: any) => { formDispatch({type: 'UPDATE_LAST_NAME', payload: event.target.value}) }}/>
+            <h1>{langData.contact}</h1>
+            <input type='text' name='firstName' id='firstName' placeholder={langData.firstName}
+                value={formState.firstName} onChange={(event: any) => { formDispatch({type: 'UPDATE_FIRST_NAME', payload: event.target.value}) }}/>
+            <input type='text' name='lastName' id='lastName' placeholder={langData.lastName}
+                value={formState.lastName} onChange={(event: any) => { formDispatch({type: 'UPDATE_LAST_NAME', payload: event.target.value}) }}/>
             <input type='email' name='email' id='email' placeholder='Email'
-            value={formState.email} onChange={(event: any) => { formDispatch({type: 'UPDATE_EMAIL', payload: event.target.value}) }}/>
-            <textarea name='message' id='message' placeholder={lang === 'pl'? 'Wiadomość': 'Message'}
-            value={formState.message} onChange={(event: any) => { formDispatch({type: 'UPDATE_MESSAGE', payload: event.target.value}) }}></textarea>
-            <button type='submit'>{lang === 'pl'? 'Wyślij': 'Send'}</button>
+                value={formState.email} onChange={(event: any) => { formDispatch({type: 'UPDATE_EMAIL', payload: event.target.value}) }}/>
+            <textarea name='message' id='message' placeholder={langData.message}
+                value={formState.message} onChange={(event: any) => { formDispatch({type: 'UPDATE_MESSAGE', payload: event.target.value}) }}></textarea>
+            <button type='submit'>{langData.send}</button>
             
         </form>
     </main>)

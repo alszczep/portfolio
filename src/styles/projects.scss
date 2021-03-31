@@ -31,6 +31,9 @@ main.projectsPage{
             img{
                 height: 100%;
             }
+            img:hover{
+                filter:invert(10%);
+            }
             img.currentProject{
                 box-sizing: border-box;
                 border: 3px solid black;
