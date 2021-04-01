@@ -67,7 +67,8 @@ export const projectsData = [
         tech: [
             'React',
             'TypeScript',
-            'Sass'
+            'Sass',
+            'Jest'
         ],
         image: portfolio, 
         github: 'https://github.com/alszczep/portfolio',

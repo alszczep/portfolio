@@ -12,24 +12,59 @@ main.mainPage{
         text-align: center;
     }
 }
-
-@media screen and (max-width: 800px){
-    main.mainPage{
-        h1{
-            font-size: 250%;
+@media screen{
+    @media (orientation: portrait){
+        @media (max-width: 800px){
+            main.mainPage{
+                h1{
+                    font-size: 250%;
+                }
+                h2{
+                    font-size: 190%;
+                }
+            }
         }
-        h2{
-            font-size: 190%;
+        @media (max-width: 600px){
+            main.mainPage{
+                h1{
+                    font-size: 200%;
+                }
+                h2{
+                    font-size: 150%;
+                }
+            }
         }
     }
-}
-@media screen and (max-width: 600px){
-    main.mainPage{
-        h1{
-            font-size: 200%;
+    @media (orientation: landscape){
+        @media (max-height: 800px){
+            main.mainPage{
+                h1{
+                    font-size: 250%;
+                }
+                h2{
+                    font-size: 190%;
+                }
+            }
         }
-        h2{
-            font-size: 150%;
+        @media (max-height: 500px){
+            main.mainPage{
+                h1{
+                    font-size: 230%;
+                }
+                h2{
+                    font-size: 180%;
+                }
+            }
+        }
+        @media (max-height: 300px){
+            main.mainPage{
+                h1{
+                    font-size: 200%;
+                }
+                h2{
+                    font-size: 150%;
+                }
+            }
         }
     }
 }
