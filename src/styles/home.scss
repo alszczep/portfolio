@@ -1,0 +1,35 @@
+main.mainPage{
+    h1, h2{
+        font-weight: 100;
+        padding: 0px 5px;
+    }
+    h1{
+        font-size: 450%;
+        text-align: center;
+    }
+    h2{
+        font-size: 390%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 800px){
+    main.mainPage{
+        h1{
+            font-size: 250%;
+        }
+        h2{
+            font-size: 190%;
+        }
+    }
+}
+@media screen and (max-width: 600px){
+    main.mainPage{
+        h1{
+            font-size: 200%;
+        }
+        h2{
+            font-size: 150%;
+        }
+    }
+}

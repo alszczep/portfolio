@@ -131,3 +131,93 @@ main.projectsPage{
         }
     }
 }
+
+
+@media screen{
+    @media (max-width: 800px), (orientation: landscape) and (max-width: 1000px){
+        ::-webkit-scrollbar {
+            width: 0; 
+            background: transparent; 
+        }
+        main.projectsPage{
+            overflow-y: scroll;
+            @include flex-box(column, flex-start, center);
+            section.projectsDesc{
+                @include flex-box(row, flex-start, center);
+                flex-wrap: wrap;
+                height: unset;
+                h1.projectName{
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+                    text-align: center;
+                    width: 100%;
+                    font-size: 250%;
+                    font-weight: 500;
+                    order: 1;
+                }
+                section.projectLeft, section.projectRight{
+                    height: unset;
+                    box-sizing: border-box;
+                }
+                section.projectLeft{
+                    width: 100%;
+                    font-size: 120%;
+                    padding: 0px;
+                    order: 3;
+                    margin: 10px;
+                }
+                section.projectRight{
+                    width: 100%;
+                    padding: 0px;
+                    order: 2;
+                }
+            }
+        }
+        @media (orientation: portrait){
+            main.projectsPage{
+                section.projectsDesc{
+                    @include flex-box(row, flex-start, center);
+                    flex-wrap: wrap;
+                    height: unset;
+                    h1.projectName{
+    
+                    }
+                    section.projectLeft{
+                        font-size: 150%;
+                    }
+                    section.projectRight{
+                        section.projectTech{
+                            section.techBox{
+                                width: 150px;
+                                font-size: 130%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media (orientation: landscape){
+            main.projectsPage{
+                section.projectsDesc{
+                    @include flex-box(row, flex-start, center);
+                    flex-wrap: wrap;
+                    height: unset;
+                    h1.projectName{
+    
+                    }
+                    section.projectLeft{
+                        font-size: 150%;
+                    }
+                    section.projectRight{
+                        section.projectTech{
+                            section.techBox{
+                                width: 125px;
+                                font-size: 120%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

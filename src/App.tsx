@@ -1,40 +1,25 @@
 import React, { FC, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
 import { engData } from './data/lang/eng';
 import { plData } from './data/lang/pl';
-import WAVES from 'vanta/dist/vanta.waves.min.js';
-import { isDesktop, isMobile } from "react-device-detect";
-import { VantaOptionsInterface } from './interfaces/VantaOptionsInterface';
+import Home from './components/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import WAVES from 'vanta/dist/vanta.waves.min.js';
 import { resizeHandler } from './modules/main-resize-handler';
+import { calculateVantaOptions } from './modules/calculate-vanta-options';
+import { VantaOptionsInterface } from './interfaces/VantaOptionsInterface';
 
 export const LangContext = React.createContext({data: engData, lang: 'eng'});
 export const AnimationsContext = React.createContext(true);
 
-const calculateOptions = (): VantaOptionsInterface => {
-  if(isMobile){
-    if(document.getElementById('root')!.clientHeight > document.getElementById('root')!.clientWidth)
-      return ({ zoom: 0.5, waveSpeed: 0.75, waveHeight: 10 });
-    if(document.getElementById('root')!.clientHeight <= document.getElementById('root')!.clientWidth)
-      return ({ zoom: 0.7, waveSpeed: 0.6, waveHeight: 9 })
-  }else if(isDesktop){
-    if(document.getElementById('root')!.clientHeight > document.getElementById('root')!.clientWidth)
-      return ({ zoom: 0.6, waveSpeed: 0.5, waveHeight: 8 })
-    if(document.getElementById('root')!.clientHeight <= document.getElementById('root')!.clientWidth)
-      return ({ zoom: 0.7, waveSpeed: 0.5, waveHeight: 8 })
-  }
-  return ({ zoom: 0.7, waveSpeed: 0.5, waveHeight: 8 })
-}
-
 const App: FC = (): JSX.Element => {
   const [vantaEffect, setVantaEffect] = useState<any>(0)
   const [animations, setAnimations] = useState(true);
-  const [options, setOptions] = useState<VantaOptionsInterface>(calculateOptions());
+  const [options, setOptions] = useState<VantaOptionsInterface>(calculateVantaOptions());
   const [lang, setLang] = useState<string>();
   useEffect(() => {
     window.addEventListener('resize', resizeHandler);
@@ -42,7 +27,7 @@ const App: FC = (): JSX.Element => {
       setAnimations(localStorage.getItem('animations') === 'true');
     else
       setAnimations(true);
-    setOptions(calculateOptions());
+    setOptions(calculateVantaOptions());
     if(localStorage.getItem('lang'))
       setLang(localStorage.getItem('lang')!);
     else

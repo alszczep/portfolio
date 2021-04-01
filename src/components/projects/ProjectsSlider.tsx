@@ -3,7 +3,6 @@ import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
 const ProjectsSlider: FC<any> = (props): JSX.Element => {
     const [currentImage, setCurrentImage] = useState<HTMLImageElement>();
-    const [chevronsEnabled, setChevronsEnabled] = useState<boolean>(true);
     const chevronHandler = (direction: string) => {
         let newProjectsList
         switch(direction){
@@ -35,21 +34,6 @@ const ProjectsSlider: FC<any> = (props): JSX.Element => {
             setCurrentImage(event.target);
         } 
     }
-    const checkChevrons = () => {
-        let listWrapper = document.getElementsByClassName('projectsList');
-            if(listWrapper.length > 0){
-                if(listWrapper[0].scrollHeight < listWrapper[0].clientHeight * 1.5)
-                    setChevronsEnabled(false)
-                else
-                    setChevronsEnabled(true)
-            } 
-    }
-    useEffect(() => {
-        checkChevrons();
-        window.addEventListener('resize', () => {
-            checkChevrons();
-        })
-    }, [])
     useEffect(() => {
         if(!currentImage){
             let firstImage = document.getElementsByTagName('img');
@@ -60,13 +44,13 @@ const ProjectsSlider: FC<any> = (props): JSX.Element => {
         }    
     }, [currentImage]);
     return (<section className='projectsSlider'>
-        {chevronsEnabled? <VscChevronLeft onClick={() => {chevronHandler('left')}}/>: ''}
+        <VscChevronLeft onClick={() => {chevronHandler('left')}}/>
         <section className='projectsList'>
             {props.projectsList.map((item: any) => {
                 return <img key={item.id} src={item.image} alt={item.id} onClick={imageHandler(item.id)}/>
             })}
         </section>
-        {chevronsEnabled? <VscChevronRight onClick={() => {chevronHandler('right')}}/>: ''}
+        <VscChevronRight onClick={() => {chevronHandler('right')}}/>
     </section>)
 }
 

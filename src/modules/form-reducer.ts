@@ -1,9 +1,5 @@
 import { FormStateInterface } from './../interfaces/FormStateInterface';
 
-///////////
-// to be tested
-///////////
-
 export const formReducer = (state: FormStateInterface, action: any) => {
     switch(action.type){
         case 'UPDATE_FIRST_NAME':

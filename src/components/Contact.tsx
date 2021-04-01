@@ -3,15 +3,7 @@ import { resizeHandler } from "../modules/main-resize-handler";
 import qs from 'qs';
 import { LangContext } from "../App";
 import { formInitialState, formReducer } from "../modules/form-reducer";
-
-//////////
-//POPRZENOSIC TEKST DO LANG
-//////////
-
-interface FormStatusInterface{
-    success: boolean;
-    text: string;
-}
+import { FormStatusInterface } from "../interfaces/FormStatusInterface";
 
 const Contact: FC<any> = (props): JSX.Element => {
     const langData = useContext(LangContext).data.contactPage;
@@ -53,13 +45,13 @@ const Contact: FC<any> = (props): JSX.Element => {
                 <input name='bot-field'/>
             </div>
             <h1>{langData.contact}</h1>
-            <input type='text' name='firstName' id='firstName' placeholder={langData.firstName}
+            <input type='text' name='firstName' placeholder={langData.firstName}
                 value={formState.firstName} onChange={(event: any) => { formDispatch({type: 'UPDATE_FIRST_NAME', payload: event.target.value}) }}/>
-            <input type='text' name='lastName' id='lastName' placeholder={langData.lastName}
+            <input type='text' name='lastName' placeholder={langData.lastName}
                 value={formState.lastName} onChange={(event: any) => { formDispatch({type: 'UPDATE_LAST_NAME', payload: event.target.value}) }}/>
-            <input type='email' name='email' id='email' placeholder='Email'
+            <input type='email' name='email' placeholder='Email'
                 value={formState.email} onChange={(event: any) => { formDispatch({type: 'UPDATE_EMAIL', payload: event.target.value}) }}/>
-            <textarea name='message' id='message' placeholder={langData.message}
+            <textarea name='message' placeholder={langData.message}
                 value={formState.message} onChange={(event: any) => { formDispatch({type: 'UPDATE_MESSAGE', payload: event.target.value}) }}></textarea>
             <button type='submit'>{langData.send}</button>
             

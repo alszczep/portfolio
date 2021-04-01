@@ -8,15 +8,6 @@ main{
 }
 main.mainPage{
     @include flex-box(column, center, center);
-    h1, h2{
-        font-weight: 100;
-    }
-    h1{
-        font-size: 450%;
-    }
-    h2{
-        font-size: 390%;
-    }
 }
 main.skillsPage{
     @include flex-box(row, center, flex-start);

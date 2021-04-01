@@ -1,6 +1,6 @@
 export const plData = {
     nav :{
-        home: 'Strona głowna',
+        home: 'Strona główna',
         skills: 'Umiejętności',
         projects: 'Projekty',
         contact: 'Kontakt'
