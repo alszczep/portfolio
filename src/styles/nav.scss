@@ -2,9 +2,11 @@
 
 $navBgColor: rgba(0, 0, 0, 0.14);
 $navHoverBgColor: rgba(0, 0, 0, 0.20);
+$navActiveBgColor: rgba(0, 0, 0, 0.75);
+$navActiveHoverBgColor: rgba(0, 0, 0, 0.65);
+$mobileNavHeight: 50px;
 
-nav.navigation{
-    @include flex-box(row, center, center);
+nav{
     position: fixed;
     top: 0px;
     left: 0px;
@@ -14,83 +16,169 @@ nav.navigation{
     a{
         color: white;
         text-align: center;
-        width: 25%;
         box-sizing: border-box;
+        text-decoration: none;
+    }
+}
+
+nav.navigation{
+    @include flex-box(row, center, center);
+    a{
+        width: 25%;
         font-size: 170%;
         height: 100%;
         padding: 20px 0px;
-        text-decoration: none;
     }
     a:hover{
         background-color: $navHoverBgColor;
     }
 }
 
+nav.mobileNavigation{
+    height: $mobileNavHeight;
+    svg{
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        padding: 5px;
+        height: ($mobileNavHeight - 10px);
+        width: ($mobileNavHeight - 10px);
 
-@media screen{
-    @media (orientation: portrait){
-        @media (max-width: 1000px){
-            nav.navigation{
-                a{
-                    font-size: 135%;
-                    border-left: 1px solid darken($navBgColor, 3%);
-                    font-weight: 300 !important;
+    }
+    section.linksWrapper{
+        overflow: hidden;
+        @include flex-box(column, flex-start, center);
+        position: fixed;
+        top: $mobileNavHeight;
+        left: 0px;
+        width: 100%;
+        background-color: $navBgColor;
+        a{
+            @include flex-box(row, center, center);
+            width: 100%;
+            height: 25%;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        a:hover{
+            background-color: $navActiveHoverBgColor !important;
+        }
+        a:active{
+            background-color: $navActiveHoverBgColor !important;
+        }
+    }
+}
+nav.mobileNavigation.active{
+    background-color: $navActiveBgColor;
+    section{
+        a{
+            background-color: $navActiveBgColor;
+        }
+    }
+}
+
+@keyframes rollDownLandscape{
+    from {
+        height: 0px;
+    }
+    to {
+        height: 65%;
+    }
+}
+@keyframes rollUpLandscape{
+    from {
+        height: 65%;
+    }
+    to {
+        height: 0px;
+    }
+}
+@keyframes rollDownPortrait{
+    from {
+        height: 0px;
+    }
+    to {
+        height: 40%;
+    }
+}
+@keyframes rollUpPortrait{
+    from {
+        height: 40%;
+    }
+    to {
+        height: 0px;
+    }
+}
+@media screen {
+    @media (orientation: landscape){
+        @media (min-height: 600px){
+            nav{
+                section{
+                    a{ 
+                        font-size: 140%;
+                    }
                 }
             }
         }
-        @media (max-width: 850px){
-            nav.navigation{
-                a{
-                    font-size: 110%;
-                    font-weight: 300 !important;
+        @media (min-height: 900px){
+            nav{
+                section{
+                    a{ 
+                        font-size: 160%;
+                    }
                 }
             }
         }
-        @media (max-width: 650px){
-            nav.navigation{
-                a{
-                    font-size: 85%;
-                    font-weight: 300 !important;
-                }
+        nav.mobileNavigation{
+            section{
+                animation-name: rollUpLandscape;
+                animation-duration: 0.3s;
+                animation-timing-function: ease;
+                height: 0px;
             }
         }
-        @media (max-width: 500px){
-            nav.navigation{
-                a{
-                    font-size: 70%;
-                    font-weight: 400 !important;
-                }
-            }
-        }
-        @media (max-width: 300px){
-            nav.navigation{
-                a{
-                    font-size: 60%;
-                    font-weight: 350 !important;
-                }
+        nav.mobileNavigation.active{
+            section{
+                animation-name: rollDownLandscape;
+                animation-duration: 0.3s;
+                animation-timing-function: ease;
+                height: 65%;
             }
         }
     }
-    @media (orientation: landscape){
-        @media (max-width: 850px){
-            nav.navigation{
-                a{
-                    font-size: 110%;
+    @media (orientation: portrait){
+        @media (min-height: 600px){
+            nav{
+                section{
+                    a{ 
+                        font-size: 120%;
+                    }
                 }
             }
         }
-        @media (max-width: 700px){
-            nav.navigation{
-                a{
-                    font-size: 90%;
+        @media (min-height: 1000px){
+            nav{
+                section{
+                    a{ 
+                        font-size: 170%;
+                    }
                 }
             }
         }
-        @media (max-width: 520px){
-            nav.navigation{
-                a{
-                    font-size: 60%;
-                }
+        nav.mobileNavigation{
+            section{
+                animation-name: rollUpPortrait;
+                animation-duration: 0.3s;
+                animation-timing-function: ease;
+                height: 0px;
+            }
+        }
+        nav.mobileNavigation.active{
+            section{
+                animation-name: rollDownPortrait;
+                animation-duration: 0.3s;
+                animation-timing-function: ease;
+                height: 40%;
             }
         }
     }

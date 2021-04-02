@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { FC, RefCallback, useEffect, useState } from 'react';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import { engData } from './data/lang/eng';
 import { plData } from './data/lang/pl';
 import Home from './components/Home';
@@ -12,6 +12,8 @@ import WAVES from 'vanta/dist/vanta.waves.min.js';
 import { resizeHandler } from './modules/main-resize-handler';
 import { calculateVantaOptions } from './modules/calculate-vanta-options';
 import { VantaOptionsInterface } from './interfaces/VantaOptionsInterface';
+import { useSwipeable } from 'react-swipeable';
+import { swipeHandler } from './modules/swipe-handler';
 
 export const LangContext = React.createContext({data: engData, lang: 'eng'});
 export const AnimationsContext = React.createContext(true);
@@ -21,6 +23,15 @@ const App: FC = (): JSX.Element => {
   const [animations, setAnimations] = useState(true);
   const [options, setOptions] = useState<VantaOptionsInterface>(calculateVantaOptions());
   const [lang, setLang] = useState<string>();
+  const history = useHistory();
+  const location = useLocation();
+  const { ref } = useSwipeable({
+    onSwipedLeft: swipeHandler(history, location),
+    onSwipedRight: swipeHandler(history, location)
+  }) as { ref: RefCallback<Document> };
+  useEffect(() => {
+    ref(document);
+  });
   useEffect(() => {
     window.addEventListener('resize', resizeHandler);
     if(localStorage.getItem('animations'))
@@ -71,7 +82,6 @@ const App: FC = (): JSX.Element => {
   return (
     <LangContext.Provider value={{data: (lang === 'pl'? plData: engData), lang: (lang? lang: 'eng')}}>
       <AnimationsContext.Provider value={animations}>
-        <Router>
           <Nav/>
           <Switch>
             <Route path='/skills'>
@@ -88,7 +98,6 @@ const App: FC = (): JSX.Element => {
             </Route>
           </Switch>
           <Footer setLang={setLang} setAnimations={setAnimations} animations={animations}/>
-        </Router>
       </AnimationsContext.Provider>
     </LangContext.Provider>
   );

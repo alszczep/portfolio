@@ -6,7 +6,7 @@ export const resizeHandler = () => {
         if(mainPageElement.classList.contains('projectsPage') || mainPageElement.classList.contains('contactPage')){
             let rootHeight = document.getElementById('root')!.clientHeight;
             let rootWidth = document.getElementById('root')!.clientWidth;
-            let navHeight = document.getElementsByClassName('navigation')[0].clientHeight;
+            let navHeight = document.getElementsByTagName('nav')[0].clientHeight;
             let footerHeight = document.getElementsByClassName('footer')[0].clientHeight;
             mainPageElement.style.height = `${rootHeight - navHeight - footerHeight - mainMargin * 2}px`;
             mainPageElement.style.margin = `${mainMargin}px`;

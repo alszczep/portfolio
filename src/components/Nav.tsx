@@ -1,14 +1,31 @@
-import React, { FC, useContext } from "react";
-import { Link } from "react-router-dom";
-import { LangContext } from "../App";
+import React, { FC, useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
+import Links from "./nav/Links";
+import { AiOutlineMenu } from 'react-icons/ai';
+
+
 
 const Nav: FC = (): JSX.Element => {
-    const { nav } = useContext(LangContext).data;
+    const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+    const navRef = useRef<HTMLElement>(null);
+    const mobileNavHandler = () => {
+        if(navRef && navRef.current){
+            if(isNavOpen) navRef.current.classList.add('active');
+            else navRef.current.classList.remove('active');
+        }
+    }
+    useEffect(() => {
+        mobileNavHandler();
+    })
+    if(isMobile)
+        return (<nav className='mobileNavigation' ref={navRef}>
+            <AiOutlineMenu color='white' onClick={() => { setIsNavOpen(!isNavOpen) }}/>
+            <section className='linksWrapper' onClick={() => { setIsNavOpen(!isNavOpen) }}>
+                <Links/>
+            </section>
+        </nav>)
     return (<nav className='navigation'>
-        <Link to='/'>{nav.home}</Link>
-        <Link to='/skills'>{nav.skills}</Link>
-        <Link to='/projects'>{nav.projects}</Link>
-        <Link to='/contact'>{nav.contact}</Link>
+        <Links/>
     </nav>)
 }
 
