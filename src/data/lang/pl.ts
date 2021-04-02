@@ -7,7 +7,8 @@ export const plData = {
     },
     mainPage: {
         title: 'Cześć, nazywam się Aleksander Szczepura',
-        desc: 'Jestem web developerem'
+        desc: 'Jestem web developerem',
+        swipe: 'Przesuń palcem, aby poruszać się między stronami'
     },
     footer: {
         animations: 'Animacje'

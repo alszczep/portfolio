@@ -7,7 +7,8 @@ export const engData = {
     },
     mainPage: {
         title: 'Hi, I am Aleksander Szczepura',
-        desc: 'A web developer'
+        desc: 'A web developer',
+        swipe: 'Swipe to move between pages'
     },
     footer: {
         animations: 'Animations'
