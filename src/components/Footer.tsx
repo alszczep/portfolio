@@ -1,5 +1,5 @@
-import pl_flag from './../images/pl_flag.svg';
-import uk_flag from './../images/uk_flag.svg';
+import pl_flag from './../images/lang-icons/pl_flag.svg';
+import uk_flag from './../images/lang-icons/uk_flag.svg';
 import React, { FC, useContext, useEffect, useRef } from "react";
 import { SiGithub } from 'react-icons/si';
 import { LangContext } from '../App';

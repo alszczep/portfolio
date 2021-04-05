@@ -1,7 +1,7 @@
-import forum from './../images/forum.PNG';
-import ase from './../images/ase.PNG';
-import chess from './../images/chess.PNG';
-import portfolio from './../images/portfolio.PNG';
+import forum from './../images/project-icons/forum.PNG';
+import ase from './../images/project-icons/ase.PNG';
+import chess from './../images/project-icons/chess.PNG';
+import portfolio from './../images/project-icons/portfolio.PNG';
 
 export const projectsData = [
     {

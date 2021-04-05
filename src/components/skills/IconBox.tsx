@@ -20,8 +20,12 @@ const IconBox: FC<any> = (props): JSX.Element => {
     const mouseLeaveHandler = () => {
         iconRef.current?.classList.remove('zoom');
     }
+    console.log(props.item.icon);
     return (<section className='skillIcon' ref={iconRef} onClick={clickHandler} onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}>
-        <props.item.icon color={props.item.iconColor}/>
+        {props.item.iconType === 'custom'? 
+        <img src={props.item.icon} alt={props.item.name}/>:
+        <props.item.icon color={props.item.iconColor} style={props.item.style}/>}
+        
     </section>)
 }
 
