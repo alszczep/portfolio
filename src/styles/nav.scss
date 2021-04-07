@@ -28,6 +28,7 @@ nav.navigation{
         font-size: 170%;
         height: 100%;
         padding: 20px 0px;
+        box-sizing: border-box;
     }
     a:hover{
         background-color: $navHoverBgColor;
