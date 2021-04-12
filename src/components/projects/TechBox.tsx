@@ -19,6 +19,9 @@ const TechBox: FC<any> = (props): JSX.Element => {
             case 'Jest':
                 setColor('rgb(153,66,91)');
                 break;
+            case 'Enzyme':
+                setColor('rgb(255,91,96)');
+                break;
             default:
                 setColor('white');
                 break;

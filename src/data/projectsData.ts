@@ -23,6 +23,28 @@ export const projectsData = [
     },
     {
         id: 1,
+        name: 'Portfolio',
+        descPl: `To jest projekt, który właśnie oglądasz. 
+        Zwiera informacje na temat posiadanych przeze mnie umiejętności, wykonanych projektów oraz pozwala na skontaktowanie się ze mną z użyciem formularza.
+        Strona może być wyświetlana w dwóch językach, polskim i angielskim. 
+        Animowane tło zostało wykonane z użyciem Vanta.js, animacje można wyłączyć odznaczając odpowiednie pole w dolnej części strony.`,
+        descEng: `This is the project, that you are currently looking at. 
+        It contains information about my skills, projects that I created and it lets you contact me using the contact form. 
+        The website can be displayed in two languages, Polish and English. 
+        The animated background was created using Vanta.js, animations can be turned off by unchecking the corresponding check box in the footer.`,
+        tech: [
+            'React',
+            'TypeScript',
+            'Sass',
+            'Jest',
+            'Enzyme'
+        ],
+        image: portfolio, 
+        github: 'https://github.com/alszczep/portfolio',
+        demo: ''
+    },
+    {
+        id: 2,
         name: 'Anime search engine',
         descPl: `Wyszukiwarka pozwalająca na wyszukiwanie anime w bazie dostarczanej przez Jikan API. Wyniki wyświetlane są w postaci kart z odpowiednim obrazkiem i nazwą.
         Po kliknięciu na kartę zostajemy przeniesieni do podstrony zwierającej informacje na temat wybranej animacji, takie jak krótki opis, lista odcinków, długość trwania, czy ocena.`,
@@ -39,7 +61,7 @@ export const projectsData = [
         demo: 'https://alszczep-anime-search-engine.netlify.app/'
     },
     {
-        id: 2,
+        id: 3,
         name: 'Chess',
         descPl: `Jest to prosty silnik szachowy, pozwalający na rogrywanie gry między użytkownikami na jednym urządzeniu. 
         Gra obsługuje zaawansowane ruchy, takie jak roszada, czy bicie w przelocie. W menu ustawień możemy także zobaczyć historię ruchów wykonanych podczas rozgrywki.`,
@@ -52,26 +74,5 @@ export const projectsData = [
         image: chess, 
         github: 'https://github.com/alszczep/chess',
         demo: 'https://alszczep-chess.netlify.app'
-    },
-    {
-        id: 3,
-        name: 'Portfolio',
-        descPl: `To jest projekt, który właśnie oglądasz. 
-        Zwiera informacje na temat posiadanych przeze mnie umiejętności, wykonanych projektów oraz pozwala na skontaktowanie się ze mną z użyciem formularza.
-        Strona może być wyświetlana w dwóch językach, polskim i angielskim. 
-        Animowane tło zostało wykonane z użyciem Vanta.js, animacje można wyłączyć odznaczając odpowiednie pole w dolnej części strony.`,
-        descEng: `This is the project, that you are currently looking at. 
-        It contains information about my skills, projects that I created and it lets you contact me using the contact form. 
-        The website can be displayed in two languages, Polish and English. 
-        The animated background was created using Vanta.js, animations can be turned off by unchecking the corresponding check box in the footer.`,
-        tech: [
-            'React',
-            'TypeScript',
-            'Sass',
-            'Jest'
-        ],
-        image: portfolio, 
-        github: 'https://github.com/alszczep/portfolio',
-        demo: ''
     }
 ]
