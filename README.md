@@ -2,7 +2,7 @@
 
 My portfolio website.
 
-## [Live demo](alszczepura.com)
+## [Live demo](https://alszczepura.com/)
 
 ## How to use
 
