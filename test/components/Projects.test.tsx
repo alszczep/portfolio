@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Projects from './../src/components/Projects';
+import Projects from '../../src/components/Projects';
 
 describe("Projects component", () => {
     it("should render main element with class projectsPage", () => {

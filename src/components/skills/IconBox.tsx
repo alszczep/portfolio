@@ -3,8 +3,9 @@ import { AnimationsContext } from './../../App';
 
 const IconBox: FC<any> = (props): JSX.Element => {
     const iconRef = useRef<HTMLElement>(null);
-    const animations = useContext(AnimationsContext);
+    const animations = useContext(AnimationsContext)?.animations;
     const clickHandler = () => {
+        if(iconRef && iconRef.current) iconRef.current.classList.add('test')
         if(animations && !iconRef.current?.classList.contains('active')){
             iconRef.current?.classList.add('active');
             setTimeout(() => {
@@ -20,7 +21,6 @@ const IconBox: FC<any> = (props): JSX.Element => {
     const mouseLeaveHandler = () => {
         iconRef.current?.classList.remove('zoom');
     }
-    console.log(props.item.icon);
     return (<section className='skillIcon' ref={iconRef} onClick={clickHandler} onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}>
         {props.item.iconType === 'custom'? 
         <img src={props.item.icon} alt={props.item.name}/>:

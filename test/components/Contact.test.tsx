@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Contact from './../src/components/Contact';
+import Contact from '../../src/components/Contact';
 
 describe("Contact component", () => {
     it("should render main element with class contactPage", () => {

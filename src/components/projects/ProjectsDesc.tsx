@@ -4,7 +4,7 @@ import ProjectLink from "./ProjectLink";
 import TechBox from "./TechBox";
 
 const ProjectsDesc: FC<any> = (props): JSX.Element => {
-    const { lang } = useContext(LangContext);
+    const lang = useContext(LangContext)?.lang;
     return (<section className='projectsDesc'>
         <h1 className='projectName'>{props.project.name}</h1>
         <section className='projectLeft'>

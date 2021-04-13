@@ -14,9 +14,11 @@ import { calculateVantaOptions } from './modules/calculate-vanta-options';
 import { VantaOptionsInterface } from './interfaces/VantaOptionsInterface';
 import { useSwipeable } from 'react-swipeable';
 import { swipeHandler } from './modules/swipe-handler';
+import { AnimationsContextInterface } from './interfaces/AnimationsContextInterface';
+import { LangContextInterface } from './interfaces/LangContextInterface';
 
-export const LangContext = React.createContext({data: engData, lang: 'eng'});
-export const AnimationsContext = React.createContext(true);
+export const LangContext = React.createContext({} as LangContextInterface);
+export const AnimationsContext = React.createContext({} as AnimationsContextInterface);
 
 const App: FC = (): JSX.Element => {
   const [vantaEffect, setVantaEffect] = useState<any>(0)
@@ -81,7 +83,7 @@ const App: FC = (): JSX.Element => {
   }, [animations, options.waveSpeed, vantaEffect])
   return (
     <LangContext.Provider value={{data: (lang === 'pl'? plData: engData), lang: (lang? lang: 'eng')}}>
-      <AnimationsContext.Provider value={animations}>
+      <AnimationsContext.Provider value={{animations: animations, setAnimations: setAnimations}}>
           <Nav/>
           <Switch>
             <Route path='/skills'>

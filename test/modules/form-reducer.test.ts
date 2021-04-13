@@ -1,4 +1,4 @@
-import { formInitialState, formReducer } from './../src/modules/form-reducer';
+import { formInitialState, formReducer } from '../../src/modules/form-reducer';
 
 describe('form reducer', () => {
      it('should set a first name', () => {

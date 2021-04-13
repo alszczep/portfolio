@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { LangContext } from "./../../App";
 
 const Links: FC = (): JSX.Element => {
-    const { nav } = useContext(LangContext).data;
+    const nav = useContext(LangContext)?.data?.nav;
     return (<>
-        <Link to='/'>{nav.home}</Link>
-        <Link to='/skills'>{nav.skills}</Link>
-        <Link to='/projects'>{nav.projects}</Link>
-        <Link to='/contact'>{nav.contact}</Link>
+        <Link to='/'>{nav?.home}</Link>
+        <Link to='/skills'>{nav?.skills}</Link>
+        <Link to='/projects'>{nav?.projects}</Link>
+        <Link to='/contact'>{nav?.contact}</Link>
     </>)
 }
 

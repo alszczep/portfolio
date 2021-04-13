@@ -18,6 +18,10 @@ To run tests use:
 
 `npm test`
 
+To run tests in watch mode use:
+
+`npm run test-watch`
+
 To build use following command:
 
 `npm run build`

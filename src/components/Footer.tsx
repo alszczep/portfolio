@@ -1,28 +1,13 @@
-import pl_flag from './../images/lang-icons/pl_flag.svg';
-import uk_flag from './../images/lang-icons/uk_flag.svg';
-import React, { FC, useContext, useEffect, useRef } from "react";
-import { SiGithub } from 'react-icons/si';
-import { LangContext } from '../App';
+import React, { FC } from "react";
+import ExternalLinks from './footer/ExternalLinks';
+import LangImages from './footer/LangImages';
+import AnimationsWrapper from './footer/AnimationsWrapper';
 
 const Footer: FC<any> = (props): JSX.Element => {
-    const { footer } = useContext(LangContext).data;
-    const checkBoxRef = useRef<HTMLInputElement>(null);
-    useEffect(() => {
-        if(localStorage.getItem('animations') && checkBoxRef && checkBoxRef.current)
-            checkBoxRef.current.checked = props.animations;
-    }, [props])
     return (<footer className='footer'>
-        <section className='animationsWrapper'>
-            <label className='animationsLabel' htmlFor='animations' onClick={() => {props.setAnimations(!props.animations)}}>{footer.animations}</label>
-            <input className='animationsCheckBox' type='checkbox' value='animations' name='animations' ref={checkBoxRef} onClick={() => {props.setAnimations(!props.animations)}}/>
-        </section>
-        <section className='externalLinks'>
-            <a target='_blank' rel='noreferrer' href='https://github.com/alszczep'><SiGithub color='white'/></a>
-        </section>
-        <section className='langImages'>
-            <img src={uk_flag} alt='eng' onClick={() => {props.setLang('eng')}}/>
-            <img src={pl_flag} alt='pl' onClick={() => {props.setLang('pl')}}/>
-        </section>
+        <AnimationsWrapper setAnimations={props.setAnimations} animations={props.animations}/>
+        <ExternalLinks/>
+        <LangImages setLang={props.setLang}/>
     </footer>)
 }
 

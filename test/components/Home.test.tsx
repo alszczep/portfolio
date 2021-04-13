@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Home from './../src/components/Home';
+import Home from '../../src/components/Home';
 
 describe("Home component", () => {
     it("should render main element with class mainPage", () => {
