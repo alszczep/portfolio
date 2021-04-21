@@ -10,10 +10,24 @@ const AnimationsWrapper: FC<any> = (): JSX.Element => {
         if(localStorage.getItem('animations') && checkBoxRef && checkBoxRef.current)
             checkBoxRef.current.checked = animations;
     }, [animations])
-    return (<section className='animationsWrapper'>
-        <label className='animationsLabel' htmlFor='animations' onClick={() => {setAnimations(!animations)}}>{footer?.animations}</label>
-        <input className='animationsCheckBox' type='checkbox' value='animations' name='animations' ref={checkBoxRef} onClick={() => {setAnimations(!animations)}}/>
-    </section>)
+    return (
+        <section 
+            className='animations-wrapper'>
+            <label 
+                className='animations-wrapper__animations-label' 
+                htmlFor='animations' 
+                onClick={() => {setAnimations(!animations)}}>
+                {footer?.animations}
+            </label>
+            <input 
+                className='animations-wrapper__animations-check-box' 
+                type='checkbox' 
+                value='animations' 
+                name='animations' 
+                ref={checkBoxRef} 
+                onClick={() => {setAnimations(!animations)}}/>
+        </section>
+    )
 }
 
 export default AnimationsWrapper;

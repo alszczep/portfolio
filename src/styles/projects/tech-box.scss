@@ -1,0 +1,29 @@
+.tech-box{
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.205);
+    width: 80px;
+    margin: 5px;
+    &__name{
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        width: 100%;
+        border-bottom: 2px solid;
+        padding: 3px;
+        margin: 0px;
+    }
+}
+
+// MEDIA QUERIES
+.tech-box{
+    @media screen {
+        @media (orientation: portrait){
+            width: 150px;
+            font-size: 130%;
+        }
+        @media (orientation: landscape){
+            width: 125px;
+            font-size: 120%;
+        }
+    }
+}

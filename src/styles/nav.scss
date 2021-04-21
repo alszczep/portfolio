@@ -6,14 +6,14 @@ $navActiveBgColor: rgba(0, 0, 0, 0.75);
 $navActiveHoverBgColor: rgba(0, 0, 0, 0.65);
 $mobileNavHeight: 50px;
 
-nav{
+.navigation{
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     background-color: $navBgColor;
     z-index: 3;
-    a{
+    &__link{
         color: white;
         text-align: center;
         box-sizing: border-box;
@@ -21,63 +21,121 @@ nav{
     }
 }
 
-nav.navigation{
+.desktop-navigation{
     @include flex-box(row, center, center);
-    a{
+    &__link{
         width: 25%;
         font-size: 170%;
         height: 100%;
         padding: 20px 0px;
         box-sizing: border-box;
     }
-    a:hover{
+    &__link:hover{
         background-color: $navHoverBgColor;
     }
 }
-
-nav.mobileNavigation{
+.mobile-navigation{
     height: $mobileNavHeight;
-    svg{
+    &__menu-icon{
         position: fixed;
         top: 0px;
         right: 0px;
         padding: 5px;
-        height: ($mobileNavHeight - 10px);
-        width: ($mobileNavHeight - 10px);
+        height: $mobileNavHeight;
+        width: $mobileNavHeight;
 
     }
-    section.linksWrapper{
+    &__links-wrapper{
         overflow: hidden;
         @include flex-box(column, flex-start, center);
         position: fixed;
         top: $mobileNavHeight;
         left: 0px;
         width: 100%;
+        height: 0px;
         background-color: $navBgColor;
-        a{
-            @include flex-box(row, center, center);
-            width: 100%;
-            height: 25%;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        a:hover{
-            background-color: $navActiveHoverBgColor !important;
-        }
-        a:active{
-            background-color: $navActiveHoverBgColor !important;
-        }
+    }
+    &__link{
+        @include flex-box(row, center, center);
+        width: 100%;
+        height: 25%;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
+    &__link:hover{
+        background-color: $navActiveHoverBgColor !important;
+    }
+    &__link:active{
+        background-color: $navActiveHoverBgColor !important;
     }
 }
-nav.mobileNavigation.active{
+.mobile-navigation--active{
     background-color: $navActiveBgColor;
-    section{
-        a{
-            background-color: $navActiveBgColor;
+    .mobile-navigation__link{
+        background-color: $navActiveBgColor;
+    }
+}
+
+// MEDIA QUERIES
+.desktop-navigation{
+    &__link{
+        @media screen {
+            @media (orientation: landscape){
+                @media (min-height: 600px){
+                    font-size: 140%;
+                }
+                @media (min-height: 900px){
+                    font-size: 160%;
+                }
+            }
+            @media (orientation: portrait){
+                @media (min-height: 600px){
+                    font-size: 120%;
+                }
+                @media (min-height: 1000px){
+                    font-size: 170%;
+                }
+            }
         }
     }
 }
 
+.mobile-naviagtion{
+    &__links-wrapper{
+        @media screen {
+            @media (orientation: landscape){
+                animation-name: rollUpLandscape;
+                animation-duration: 0.3s;
+                animation-timing-function: ease;
+                height: 0px;
+            }
+            @media (orientation: portrait){
+                animation-name: rollUpPortrait;
+                animation-duration: 0.3s;
+                animation-timing-function: ease;
+                height: 0px;
+            }
+        }
+    }
+}
+.mobile-navigation--active{
+    .mobile-navigation__links-wrapper{
+        @media (orientation: landscape){
+            animation-name: rollDownLandscape;
+            animation-duration: 0.3s;
+            animation-timing-function: ease;
+            height: 65%;
+        }
+        @media (orientation: portrait){
+            animation-name: rollDownPortrait;
+            animation-duration: 0.3s;
+            animation-timing-function: ease;
+            height: 40%;
+        }
+    }
+}
+
+// MOBILE NAVIGATION ANIMATIONS
 @keyframes rollDownLandscape{
     from {
         height: 0px;
@@ -108,79 +166,5 @@ nav.mobileNavigation.active{
     }
     to {
         height: 0px;
-    }
-}
-@media screen {
-    @media (orientation: landscape){
-        @media (min-height: 600px){
-            nav{
-                section{
-                    a{ 
-                        font-size: 140%;
-                    }
-                }
-            }
-        }
-        @media (min-height: 900px){
-            nav{
-                section{
-                    a{ 
-                        font-size: 160%;
-                    }
-                }
-            }
-        }
-        nav.mobileNavigation{
-            section{
-                animation-name: rollUpLandscape;
-                animation-duration: 0.3s;
-                animation-timing-function: ease;
-                height: 0px;
-            }
-        }
-        nav.mobileNavigation.active{
-            section{
-                animation-name: rollDownLandscape;
-                animation-duration: 0.3s;
-                animation-timing-function: ease;
-                height: 65%;
-            }
-        }
-    }
-    @media (orientation: portrait){
-        @media (min-height: 600px){
-            nav{
-                section{
-                    a{ 
-                        font-size: 120%;
-                    }
-                }
-            }
-        }
-        @media (min-height: 1000px){
-            nav{
-                section{
-                    a{ 
-                        font-size: 170%;
-                    }
-                }
-            }
-        }
-        nav.mobileNavigation{
-            section{
-                animation-name: rollUpPortrait;
-                animation-duration: 0.3s;
-                animation-timing-function: ease;
-                height: 0px;
-            }
-        }
-        nav.mobileNavigation.active{
-            section{
-                animation-name: rollDownPortrait;
-                animation-duration: 0.3s;
-                animation-timing-function: ease;
-                height: 40%;
-            }
-        }
     }
 }

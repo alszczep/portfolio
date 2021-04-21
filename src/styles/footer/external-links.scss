@@ -1,0 +1,16 @@
+@import './footer-variables.scss';
+
+.external-links{
+    @include flex-box(row, center, center);
+    height: 100%;
+    margin-right: 10px;
+    &__link{
+        @include flex-box(row, center, center);
+        height: $footerHeight;
+        width: $footerHeight;   
+    }
+    &__icon{
+        height: $footerHeight - 10px;
+        width: $footerHeight - 10px;
+    }
+}

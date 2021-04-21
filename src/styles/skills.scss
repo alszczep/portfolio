@@ -1,110 +1,33 @@
-$iconSize: 100px;
-@keyframes zoom {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
-}
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+@import './skills/icon-box.scss';
+@import './skills/skills-variables.scss';
 
-main.skillsPage{
+.skills{
+    @include flex-box(row, center, flex-start);
+    flex-wrap: wrap;
     width: 60%;
     height: unset;
-    .skillIcon{
-        width: $iconSize;
-        height: $iconSize;
-        padding: 15px;
-        margin: 15px;
-        border-radius: 5px;
-        background-color: rgba(15, 8, 31, 0.808);
-        svg, img{
-            height: 100%;
-            width: 100%;
-        }
-    }
-    .skillIcon.zoom{
-        animation-name: zoom;
-        animation-duration: 0.2s;
-        animation-timing-function: linear;
-        transform: scale(1.1);
-        svg{
-            filter: invert(10%);
-        }
-    }
-    .skillIcon.active{
-        animation-name: rotate;
-        animation-duration: 0.5s;
-        animation-timing-function: ease;
-        transform: rotate(360deg);
-    }
 }
 
-@media screen{
-    @media (orientation: portrait){
-        @media (max-width: 800px){
-            main.skillsPage{
+// MEDIA QUERIES
+.skills{
+    @media screen{
+        @media (orientation: portrait){
+            @media (max-width: 800px){
                 width: 80%;
-                .skillIcon{
-                    width: ($iconSize * 0.85);
-                    height: ($iconSize * 0.85);
-                    margin: 10px;
-                    padding: 10px;
-                }
             }
-        }
-        @media (max-width: 500px){
-            main.skillsPage{
+            @media (max-width: 500px){
                 width: 95%;
-                .skillIcon{
-                    width: ($iconSize * 0.70);
-                    height: ($iconSize * 0.70);
-                    margin: 5px;
-                    padding: 8px;
-                }
             }
         }
-    }
-    @media (orientation: landscape){
-        @media (max-width: 1100px){
-            main.skillsPage{
-                width: 80%;
-                .skillIcon{
-                    width: ($iconSize * 0.85);
-                    height: ($iconSize * 0.85);
-                    margin: 10px;
-                    padding: 10px;
-                }
+        @media (orientation: landscape){
+            @media (max-width: 1100px){
+                    width: 80%;
             }
-        }
-        @media (max-width: 800px){
-            main.skillsPage{
-                width: 100%;
-                .skillIcon{
-                    width: ($iconSize * 0.70);
-                    height: ($iconSize * 0.70);
-                    margin: 5px;
-                    padding: 8px;
-                }
+            @media (max-width: 800px){
+                    width: 100%;
             }
-        }
-        @media (max-height: 330px){
-            main.skillsPage{
+            @media (max-height: 330px){
                 padding-top: 20px !important;
-                .skillIcon{
-                    width: ($iconSize * 0.55);
-                    height: ($iconSize * 0.55);
-                    margin: 5px;
-                    padding: 8px;
-                }
             }
         }
     }

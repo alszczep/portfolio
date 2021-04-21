@@ -1,74 +1,72 @@
-main.mainPage{
-    h1, h2, h6{
+.home{
+    @include flex-box(column, center, center);
+    &__header{
         font-weight: 100;
         padding: 0px 5px;
     }
-    h1{
+    &__header--first{
         font-size: 450%;
         text-align: center;
+        margin-bottom: 30px;
     }
-    h2{
+    &__header--second{
         font-size: 390%;
         text-align: center;
     }
-    h6{
+    &__header--mobile{
         color: rgba(255, 255, 255, 0.25);
-        margin: 0px
     }
 }
-@media screen{
-    @media (orientation: portrait){
-        @media (max-width: 800px){
-            main.mainPage{
-                h1{
+
+// MEDIA QUERIES 
+.home{  
+    @media screen{
+        &__header--first{
+            @media (orientation: portrait){
+                @media (max-width: 800px){
+                        font-size: 250%;
+                        margin-bottom: 15px;
+                }
+                @media (max-width: 600px){
+                        font-size: 200%;
+                }
+            }
+            @media (orientation: landscape){
+                @media (max-height: 800px){
                     font-size: 250%;
+                    margin-bottom: 15px;
                 }
-                h2{
-                    font-size: 190%;
-                }
-            }
-        }
-        @media (max-width: 600px){
-            main.mainPage{
-                h1{
-                    font-size: 200%;
-                }
-                h2{
-                    font-size: 150%;
-                }
-            }
-        }
-    }
-    @media (orientation: landscape){
-        @media (max-height: 800px){
-            main.mainPage{
-                h1{
-                    font-size: 250%;
-                }
-                h2{
-                    font-size: 190%;
-                }
-            }
-        }
-        @media (max-height: 500px){
-            main.mainPage{
-                h1{
+                @media (max-height: 500px){
                     font-size: 230%;
                 }
-                h2{
-                    font-size: 180%;
+                @media (max-height: 300px){
+                    font-size: 200%;
                 }
             }
         }
-        @media (max-height: 300px){
-            main.mainPage{
-                h1{
-                    font-size: 200%;
+        &__header--second{
+            @media (orientation: portrait){
+                @media (max-width: 800px){
+                        font-size: 200%;
+                        margin-bottom: 10px;
                 }
-                h2{
-                    font-size: 150%;
+                @media (max-width: 600px){
+                        font-size: 160%;
+                }
+            }
+            @media (orientation: landscape){
+                @media (max-height: 800px){
+                    font-size: 200%;
+                    margin-bottom: 10px;
+                }
+                @media (max-height: 500px){
+                    font-size: 190%;
+                }
+                @media (max-height: 300px){
+                    font-size: 160%;
                 }
             }
         }
     }
 }
+

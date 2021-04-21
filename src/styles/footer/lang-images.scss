@@ -1,0 +1,16 @@
+@import './footer-variables.scss';
+
+.lang-images{
+    @include flex-box(row, center, center);
+    height: $footerHeight;
+    &__lang-image{
+        z-index: 4;
+        height: $imageHeight;
+        margin: 3px;
+        border-radius: 2px;
+        width: ($imageHeight * 2);
+    }
+    &__lang-image:hover{
+        filter: brightness(0.85);
+    }
+}  

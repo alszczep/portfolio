@@ -1,0 +1,32 @@
+.description__link{
+    @include flex-box(row, center, center);
+    width: 50%;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    text-transform: capitalize;
+    font-size: 150%;
+    box-sizing: border-box;
+    &-icon{
+        padding: 3px;
+        height: 50px;
+        width: 50px;
+    }
+    &-name{
+        margin: 0px;
+    }
+}
+.description__link--github{
+    background-color: rgb(240,81,51);
+    border: 3px solid darken(rgb(240,81,51), 15%);
+}
+.description__link--github:hover{
+    background-color: darken(rgb(240,81,51), 15%);
+}
+.description__link--demo{
+    background-color: rgb(3, 3, 70);
+    border: 3px solid lighten(rgb(3, 3, 70), 5%);
+}
+.description__link--demo:hover{
+    background-color: lighten(rgb(3, 3, 70), 5%);
+}

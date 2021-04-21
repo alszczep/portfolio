@@ -1,0 +1,25 @@
+@import './footer-variables.scss';
+
+.animations-wrapper{
+    @include flex-box(row, flex-start, center);
+    margin-left: 5px;
+    margin-right: auto;
+    height: 100%;
+    z-index: 4;
+    &__animations-label{
+        line-height: $footerHeight;
+        color: white;
+        height: 100%;
+    }
+    &__animations-check-box{
+        filter: invert(60%) brightness(1.1);
+        margin: 4px;
+    }
+    &__animations-check-box:hover{
+        filter: invert(60%) brightness(1);
+        margin: 4px;
+    }
+    &__animations-check-box:checked{
+        filter: invert(25%) contrast(2);
+    }
+}

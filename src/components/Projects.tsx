@@ -12,10 +12,18 @@ const Projects: FC<any> = (): JSX.Element => {
     useEffect(() => {
         resizeHandler();
     })
-    return (<main className='projectsPage'>
-        <ProjectsSlider setProjectId={setProjectId} projectsList={projectsList} setProjectsList={setProjectsList} projectsCount={projectsCount}/>
-        <ProjectsDesc project={projectsData[projectId]}/>
-    </main>)
+    return (
+        <main 
+            className='main projects'>
+            <ProjectsSlider 
+                setProjectId={setProjectId} 
+                projectsList={projectsList} 
+                setProjectsList={setProjectsList} 
+                projectsCount={projectsCount}/>
+            <ProjectsDesc 
+                project={projectsData[projectId]}/>
+        </main>
+    )
 }
 
 export default Projects;

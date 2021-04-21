@@ -1,10 +1,11 @@
 @import './mixins.scss';
+@import './footer/animations-wrapper.scss';
+@import './footer/external-links.scss';
+@import './footer/lang-images.scss';
+@import './footer/footer-variables.scss';
 
-$footerBgColor: rgba(0, 0, 0, 0.14);
-$footerHeight: 30px;
-$imageHeight: ($footerHeight - 10px);
 
-footer.footer{
+.footer{
     @include flex-box(row, flex-end, center);
     position: fixed;
     bottom: 0px;
@@ -12,67 +13,4 @@ footer.footer{
     height: $footerHeight;
     background-color: $footerBgColor;
     z-index: 3;
-    .animationsWrapper{
-        @include flex-box(row, flex-start, center);
-        margin-left: 5px;
-        margin-right: auto;
-        height: 100%;
-        z-index: 4;
-        .animationsLabel{
-            line-height: $footerHeight;
-            color: white;
-            height: 100%;
-        }
-        .animationsCheckBox{
-            filter: invert(60%) brightness(1.1);
-            margin: 4px;
-        }
-        .animationsCheckBox:hover{
-            filter: invert(60%) brightness(1);
-            margin: 4px;
-        }
-        .animationsCheckBox:checked{
-            filter: invert(25%) contrast(2);
-        }
-    }
-    section.externalLinks{
-        @include flex-box(row, center, center);
-        height: 100%;
-        margin-right: 10px;
-        a{
-            @include flex-box(row, center, center);
-            height: $footerHeight;
-            width: $footerHeight;
-            svg{
-                height: $footerHeight - 10px;
-                width: $footerHeight - 10px;
-            }
-        }
-    }
-    section.langImages{
-        @include flex-box(row, center, center);
-        height: $footerHeight;
-        img{
-            z-index: 4;
-            height: $imageHeight;
-            margin: 3px;
-            border-radius: 2px;
-            width: ($imageHeight * 2);
-        }
-        img:hover{
-            filter: brightness(0.85);
-        }
-    }   
-}
-
-@media screen{
-    @media (orientation: portrait){
-        @media (max-width: 1000px){
-            .animationsWrapper{
-                .animationsLabel{
-                    font-size: 80%;
-                }
-            }
-        }
-    }
 }

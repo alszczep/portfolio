@@ -11,15 +11,29 @@ const Nav: FC = (): JSX.Element => {
         mobileNavHandler(navRef, isNavOpen);
     }, [isNavOpen])
     if(isMobile)
-        return (<nav className='mobileNavigation' ref={navRef}>
-            <AiOutlineMenu color='white' onClick={() => { setIsNavOpen(!isNavOpen) }}/>
-            <section className='linksWrapper' onClick={() => { setIsNavOpen(!isNavOpen) }}>
-                <Links/>
-            </section>
-        </nav>)
-    return (<nav className='navigation'>
-        <Links/>
-    </nav>)
+        return (
+            <nav 
+                className='navigation mobile-navigation' 
+                ref={navRef}>
+                <AiOutlineMenu 
+                    className='mobile-navigation__menu-icon' 
+                    color='white' 
+                    onClick={() => { setIsNavOpen(!isNavOpen) }}/>
+                <section 
+                    className='mobile-navigation__links-wrapper' 
+                    onClick={() => { setIsNavOpen(!isNavOpen) }}>
+                    <Links 
+                        device={'mobile'}/>
+                </section>
+            </nav>
+        )
+    return (
+        <nav 
+            className='navigation desktop-navigation'>
+            <Links 
+                device={'desktop'}/>
+        </nav>
+    )
 }
 
 export default Nav;

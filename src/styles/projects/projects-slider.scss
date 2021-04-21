@@ -1,0 +1,38 @@
+.slider{
+    @include flex-box(row, center, center);
+    background-color: rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 15px;
+    &__chevron{
+        height: 100%;
+        width: 25px;
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+    &__chevron--left{
+        border-radius: 10px 0px 0px 10px;
+    }
+    &__chevron--right{
+        border-radius: 0px 10px 10px 0px;
+    }
+    &__chevron:hover{
+        background-color: rgba(255, 255, 255, 0.011);
+    }
+    &__list{
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        &-image{
+            height: 100%;
+        }
+        &-image:hover{
+            filter:invert(10%);
+        }
+        &-image.currentProject{
+            box-sizing: border-box;
+            border: 3px solid black;
+        }
+    }
+}

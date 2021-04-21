@@ -27,9 +27,16 @@ const TechBox: FC<any> = (props): JSX.Element => {
                 break;
         }
     }, [props.tech])
-    return (<section className='techBox'>
-        <h5 style={{borderColor: color}}>{props.tech}</h5>
-    </section>)
+    return (
+        <section 
+            className='tech-box'>
+            <h5 
+                className='tech-box__name'
+                style={{borderColor: color}}>
+                {props.tech}
+            </h5>
+        </section>
+    )
 }
 
 export default TechBox;

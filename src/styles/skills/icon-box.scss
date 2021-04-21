@@ -1,0 +1,87 @@
+@import './skills-variables.scss';
+
+.skills__icon{
+    width: $iconSize;
+    height: $iconSize;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: rgba(15, 8, 31, 0.808);
+    svg, img{
+        height: 100%;
+        width: 100%;
+    }
+}
+.skills__icon--zoom{
+    animation-name: zoom;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    transform: scale(1.1);
+    svg{
+        filter: invert(10%);
+    }
+}
+.skills__icon--active{
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    transform: rotate(360deg);
+}
+
+// ANIMATIONS
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// MEDIA QUERIES
+.skills__icon{
+    @media screen{
+        @media (orientation: portrait){
+            @media (max-width: 800px){
+                width: ($iconSize * 0.85);
+                height: ($iconSize * 0.85);
+                margin: 10px;
+                padding: 10px;
+            }
+            @media (max-width: 500px){
+                width: ($iconSize * 0.70);
+                height: ($iconSize * 0.70);
+                margin: 5px;
+                padding: 8px;
+            }
+        }
+        @media (orientation: landscape){
+            @media (max-width: 1100px){
+                width: ($iconSize * 0.85);
+                height: ($iconSize * 0.85);
+                margin: 10px;
+                padding: 10px;
+            }
+            @media (max-width: 800px){
+                width: ($iconSize * 0.70);
+                height: ($iconSize * 0.70);
+                margin: 5px;
+                padding: 8px;
+            }
+            @media (max-height: 330px){
+                width: ($iconSize * 0.55);
+                height: ($iconSize * 0.55);
+                margin: 5px;
+                padding: 8px;
+            }
+        }
+    }
+}

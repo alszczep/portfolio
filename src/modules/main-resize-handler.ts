@@ -3,7 +3,7 @@ const mainMargin = 15;
 export const resizeHandler = () => {
     if(document.getElementsByTagName('main')[0]){
         let mainPageElement = document.getElementsByTagName('main')[0];
-        if(mainPageElement.classList.contains('projectsPage') || mainPageElement.classList.contains('contactPage')){
+        if(mainPageElement.classList.contains('projects') || mainPageElement.classList.contains('contact')){
             let rootHeight = document.getElementById('root')!.clientHeight;
             let rootWidth = document.getElementById('root')!.clientWidth;
             let navHeight = document.getElementsByTagName('nav')[0].clientHeight;

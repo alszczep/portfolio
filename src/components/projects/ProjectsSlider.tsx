@@ -14,15 +14,32 @@ const ProjectsSlider: FC<any> = (props): JSX.Element => {
             }
         }    
     }, [currentImage]);
-    return (<section className='projectsSlider'>
-        <VscChevronLeft onClick={() => {chevronHandler('left', props.setProjectsList, props.projectsList, props.projectsCount)}}/>
-        <section className='projectsList'>
-            {props.projectsList?.map((item: any) => {
-                return <img key={item.id} src={item.image} alt={item.id} onClick={imageHandler(item.id, props.setProjectId, currentImage, setCurrentImage)}/>
-            })}
+    return (
+        <section 
+            className='slider'>
+            <VscChevronLeft 
+                className='slider__chevron slider__chevron--left'
+                onClick={() => {chevronHandler('left', props.setProjectsList, props.projectsList, props.projectsCount)}}/>
+            <section 
+                className='slider__list'>
+                {
+                    props.projectsList?.map((item: any) => {
+                        return (
+                        <img 
+                            className='slider__list-image'
+                            key={item.id} 
+                            src={item.image} 
+                            alt={item.id} 
+                            onClick={imageHandler(item.id, props.setProjectId, currentImage, setCurrentImage)}/>
+                        )
+                    })
+                }
+            </section>
+            <VscChevronRight 
+                className='slider__chevron slider__chevron--right'
+                onClick={() => {chevronHandler('right', props.setProjectsList, props.projectsList, props.projectsCount)}}/>
         </section>
-        <VscChevronRight onClick={() => {chevronHandler('right', props.setProjectsList, props.projectsList, props.projectsCount)}}/>
-    </section>)
+    )
 }
 
 export default ProjectsSlider;

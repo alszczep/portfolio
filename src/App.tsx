@@ -82,24 +82,43 @@ const App: FC = (): JSX.Element => {
       vantaEffect.setOptions({waveSpeed: tempWaveSpeed});
   }, [animations, options.waveSpeed, vantaEffect])
   return (
-    <LangContext.Provider value={{data: (lang === 'pl'? plData: engData), lang: (lang? lang: 'eng')}}>
-      <AnimationsContext.Provider value={{animations: animations, setAnimations: setAnimations}}>
+    <LangContext.Provider 
+      value={
+        {
+          data: (lang === 'pl'? plData: engData), 
+          lang: (lang? lang: 'eng')
+        }
+      }>
+      <AnimationsContext.Provider 
+        value={
+          {
+            animations: animations, 
+            setAnimations: setAnimations
+          }
+        }>
           <Nav/>
           <Switch>
-            <Route path='/skills'>
+            <Route 
+              path='/skills'>
               <Skills/>
             </Route>
-            <Route path='/projects'>
+            <Route 
+              path='/projects'>
               <Projects/>
             </Route>
-            <Route path='/contact'>
+            <Route 
+              path='/contact'>
               <Contact/>
             </Route>
-            <Route path='/'>
+            <Route 
+              path='/'>
               <Home/>
             </Route>
           </Switch>
-          <Footer setLang={setLang} setAnimations={setAnimations} animations={animations}/>
+          <Footer 
+            setLang={setLang} 
+            setAnimations={setAnimations} 
+            animations={animations}/>
       </AnimationsContext.Provider>
     </LangContext.Provider>
   );
