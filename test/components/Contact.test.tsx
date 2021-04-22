@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import Contact from '../../src/components/Contact';
 
 describe("Contact component", () => {
-    it("should render main element with class contactPage", () => {
+    it("should render main element with classes main and contact", () => {
         const wrapper = shallow(<Contact/>);
-        const mainElement = wrapper.find('main.contactPage');
+        const mainElement = wrapper.find('main.main.contact');
         expect(mainElement.exists()).toBe(true);
     })
     it("should render form with name contact", () => {
@@ -30,22 +30,22 @@ describe("Contact component", () => {
     })
     it("should render inputs (first name, last name, email), textarea and button", () => {
         const wrapper = shallow(<Contact/>);
-        const input1 = wrapper.find('input').at(2);
+        const input1 = wrapper.find('input.contact__form-element.contact__form-element--input.contact__form-element--first-name');
         expect(input1.exists()).toBe(true);
         expect(input1.props().type).toBe('text');
         expect(input1.props().name).toBe('firstName');
-        const input2 = wrapper.find('input').at(3);
+        const input2 = wrapper.find('input.contact__form-element.contact__form-element--input.contact__form-element--last-name');
         expect(input2.exists()).toBe(true);
         expect(input2.props().type).toBe('text');
         expect(input2.props().name).toBe('lastName');
-        const input3 = wrapper.find('input').at(4);
+        const input3 = wrapper.find('input.contact__form-element.contact__form-element--input.contact__form-element--email');
         expect(input3.exists()).toBe(true);
         expect(input3.props().type).toBe('email');
         expect(input3.props().name).toBe('email');
-        const textarea = wrapper.find('textarea');
+        const textarea = wrapper.find('textarea.contact__form-element.contact__form-element--textarea.contact__form-element--message');
         expect(textarea.exists()).toBe(true);
         expect(textarea.props().name).toBe('message');
-        const button = wrapper.find('button');
+        const button = wrapper.find('button.contact__form-element.contact__form-element--button.contact__form-element--submit.contact__button');
         expect(button.exists()).toBe(true);
         expect(button.props().type).toBe('submit');
     })

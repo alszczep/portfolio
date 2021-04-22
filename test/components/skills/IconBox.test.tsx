@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import IconBox from './../../../src/components/skills/IconBox';
 import { FaSass } from 'react-icons/fa';
-import { AnimationsContext } from '../../../src/App';
-import { fireEvent } from '@testing-library/dom';
 
 const testIconCustom = {
     name: 'HTML5',
@@ -22,15 +20,15 @@ const testIconReact = {
 }
 
 describe("IconBox component", () => {
-    it("should render section with class skillIcon", () => {
+    it("should render section with class skills__icon", () => {
         const wrapper = shallow(<IconBox item={testIconCustom}/>);
-        const section = wrapper.find('section.skillIcon');
+        const section = wrapper.find('section.skills__icon');
         expect(section.exists()).toBe(true);
     })
     describe("Custom icon", () => {
         it("should render image ", () => {
             const wrapper = shallow(<IconBox item={testIconCustom}/>);
-            const image = wrapper.find('img');
+            const image = wrapper.find('img.skills__icon-image');
             expect(image.exists()).toBe(true);
         })
     })
@@ -39,6 +37,7 @@ describe("IconBox component", () => {
             const wrapper = shallow(<IconBox item={testIconReact}/>);
             const image = wrapper.find(testIconReact.icon);
             expect(image.exists()).toBe(true);
+            expect(image.hasClass('skills__icon-image')).toBe(true);
         })
     })
 })

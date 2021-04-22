@@ -16,8 +16,14 @@ const IconBox: FC<any> = (props): JSX.Element => {
             onMouseLeave={() => mouseLeaveHandler(iconRef)}>
             {
                 props.item.iconType === 'custom'? 
-                <img src={props.item.icon} alt={props.item.name}/>:
-                <props.item.icon color={props.item.iconColor} style={props.item.style}/>
+                <img 
+                    className='skills__icon-image'
+                    src={props.item.icon} 
+                    alt={props.item.name}/>:
+                <props.item.icon 
+                    className='skills__icon-image'
+                    color={props.item.iconColor} 
+                    style={props.item.style}/>
             }
         </section>
     )

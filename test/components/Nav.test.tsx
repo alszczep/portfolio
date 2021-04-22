@@ -5,7 +5,7 @@ import Nav from '../../src/components/Nav';
 describe("Nav component", () => {
     it("should render navigation for desktop", () => {
         const wrapper = shallow(<Nav/>);
-        const nav = wrapper.find('nav.navigation');
+        const nav = wrapper.find('nav.navigation.desktop-navigation');
         expect(nav.exists()).toBe(true);
     })
 })
