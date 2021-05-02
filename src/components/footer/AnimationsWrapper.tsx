@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from "react";
+import { FC, useContext, useEffect, useRef } from "react";
 import { AnimationsContext, LangContext } from '../../App';
 
 const AnimationsWrapper: FC<any> = (): JSX.Element => {

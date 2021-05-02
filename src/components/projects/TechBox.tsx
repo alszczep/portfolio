@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
-const TechBox: FC<any> = (props): JSX.Element => {
+const TechBox: FC<{ tech: string }> = ({ tech }): JSX.Element => {
     const [color, setColor] = useState<string>();
     useEffect(() => {
-        switch(props.tech){
+        switch(tech){
             case 'React':
                 setColor('rgb(97,218,251)'); 
                 break;
@@ -19,21 +19,27 @@ const TechBox: FC<any> = (props): JSX.Element => {
             case 'Jest':
                 setColor('rgb(153,66,91)');
                 break;
-            case 'Enzyme':
-                setColor('rgb(255,91,96)');
+            case 'Node':
+                setColor('rgb(104,180,99)');
+                break;
+            case 'Express':
+                setColor('rgb(150,250,40)');
+                break;
+            case 'PostgreSQL':
+                setColor('rgb(65,123,162)');
                 break;
             default:
                 setColor('white');
                 break;
         }
-    }, [props.tech])
+    }, [tech])
     return (
         <section 
             className='tech-box'>
             <h5 
                 className='tech-box__name'
                 style={{borderColor: color}}>
-                {props.tech}
+                {tech}
             </h5>
         </section>
     )

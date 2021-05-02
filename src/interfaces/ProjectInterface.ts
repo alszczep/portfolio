@@ -7,4 +7,5 @@ export interface ProjectInterface{
     image: any;
     github: string;
     demo: string;
+    demoType: string;
 };

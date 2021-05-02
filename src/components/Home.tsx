@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import { FC, useContext } from "react";
 import { isMobile } from "react-device-detect";
 import { LangContext } from './../App';
 

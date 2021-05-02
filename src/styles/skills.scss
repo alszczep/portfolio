@@ -1,5 +1,4 @@
 @import './skills/icon-box.scss';
-@import './skills/skills-variables.scss';
 
 .skills{
     @include flex-box(row, center, flex-start);

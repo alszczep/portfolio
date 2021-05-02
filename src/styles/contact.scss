@@ -1,5 +1,3 @@
-@import './mixins.scss';
-
 .contact{
     @include flex-box(column, center, center);
     ::-webkit-scrollbar {

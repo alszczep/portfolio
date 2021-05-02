@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef } from "react";
+import { FC, useContext, useRef } from "react";
 import { clickHandler } from "../../modules/skills/click-handler";
 import { mouseEnterHandler } from "../../modules/skills/mouse-enter-handler";
 import { mouseLeaveHandler } from "../../modules/skills/mouse-leave-handler";

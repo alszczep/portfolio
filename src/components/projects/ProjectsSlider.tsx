@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import { imageHandler } from "../../modules/projects/image-handler";
 import { chevronHandler } from './../../modules/projects/chevron-handler';
 
-const ProjectsSlider: FC<any> = (props): JSX.Element => {
+const ProjectsSlider: FC<any> = ({ setProjectId, projectsList, setProjectsList, projectsCount }): JSX.Element => {
     const [currentImage, setCurrentImage] = useState<HTMLImageElement>();
     useEffect(() => {
         if(!currentImage){
@@ -19,25 +19,32 @@ const ProjectsSlider: FC<any> = (props): JSX.Element => {
             className='slider'>
             <VscChevronLeft 
                 className='slider__chevron slider__chevron--left'
-                onClick={() => {chevronHandler('left', props.setProjectsList, props.projectsList, props.projectsCount)}}/>
+                onClick={() => {chevronHandler('left', setProjectsList, projectsList, projectsCount)}}/>
             <section 
                 className='slider__list'>
                 {
-                    props.projectsList?.map((item: any) => {
+                    projectsList?.map((item: any) => {
                         return (
-                        <img 
-                            className='slider__list-image'
-                            key={item.id} 
-                            src={item.image} 
-                            alt={item.id} 
-                            onClick={imageHandler(item.id, props.setProjectId, currentImage, setCurrentImage)}/>
+                            <section
+                                className='slider__list-item'
+                                onClick={imageHandler(item.id, setProjectId, currentImage, setCurrentImage)}
+                                key={item.name}>
+                                <img 
+                                    className='slider__list-image'
+                                    src={item.image} 
+                                    alt={item.name}/>
+                                <section
+                                    className='slider__list-label'>
+                                    {item.name}
+                                </section>
+                            </section>
                         )
                     })
                 }
             </section>
             <VscChevronRight 
                 className='slider__chevron slider__chevron--right'
-                onClick={() => {chevronHandler('right', props.setProjectsList, props.projectsList, props.projectsCount)}}/>
+                onClick={() => {chevronHandler('right', setProjectsList, projectsList, projectsCount)}}/>
         </section>
     )
 }

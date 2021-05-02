@@ -86,7 +86,7 @@ const App: FC = (): JSX.Element => {
       value={
         {
           data: (lang === 'pl'? plData: engData), 
-          lang: (lang? lang: 'eng')
+          lang: (lang || 'eng')
         }
       }>
       <AnimationsContext.Provider 

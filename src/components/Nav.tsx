@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import Links from "./nav/Links";
 import { AiOutlineMenu } from 'react-icons/ai';

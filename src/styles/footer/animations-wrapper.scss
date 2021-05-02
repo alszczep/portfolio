@@ -1,5 +1,3 @@
-@import './footer-variables.scss';
-
 .animations-wrapper{
     @include flex-box(row, flex-start, center);
     margin-left: 5px;

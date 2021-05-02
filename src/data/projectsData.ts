@@ -1,11 +1,35 @@
 import forum from './../images/project-icons/forum.PNG';
-import ase from './../images/project-icons/ase.PNG';
+import animelist from './../images/project-icons/animelist.PNG';
 import chess from './../images/project-icons/chess.PNG';
 import portfolio from './../images/project-icons/portfolio.PNG';
 
 export const projectsData = [
     {
         id: 0,
+        name: 'Anime list',
+        descPl: `Aplikacja pozwala na wyszukiwanie anime w bazie dostarczanej przez Jikan API. Wyniki wyświetlane są w postaci kart z odpowiednim obrazkiem i nazwą.
+        Po kliknięciu na kartę zostajemy przeniesieni do podstrony zwierającej informacje na temat wybranej animacji, takie jak krótki opis, lista odcinków, długość trwania, czy ocena.
+        Aplikacja dostarcza także możliwość założenia konta oraz dodawnia ulubionych anime do swojej listy.`,
+        descEng: `The application lets users search for animes among the data delivered by the Jikan API. 
+        Results are displayed in form of cards, which contain corresponding images and titles. 
+        By click on the card, the user can go to a subpage, where he can see more details about the chosen animation, such as short description, episode list, duration, or rating.
+        The user can also create an account, and add favourite animes to his list.`,
+        tech: [
+            'React',
+            'TypeScript',
+            'Sass',
+            'Node',
+            'Express',
+            'PostgreSQL',
+            'Jest'
+        ],
+        image: animelist, 
+        github: 'https://github.com/alszczep/anime-list',
+        demo: 'https://al-szczep-anime-list.herokuapp.com/',
+        demoType: 'heroku'
+    },
+    {
+        id: 1,
         name: 'Forum',
         descPl: `W tym projekcie jestem odpowiedzialny za front-end. Jest to proste forum dyskusyjne z możliwością dodawnia postów i komentarzy do nich. 
         Forum posiada możliwość założenia konta oraz zarządzania dodanymi przez użytkownika tego konta. Projekt jest wciąż w budowie.`,
@@ -19,10 +43,11 @@ export const projectsData = [
         ],
         image: forum, 
         github: 'https://github.com/alszczep/forum',
-        demo: ''
+        demo: '',
+        demoType: 'netlify'
     },
     {
-        id: 1,
+        id: 2,
         name: 'Portfolio',
         descPl: `To jest projekt, który właśnie oglądasz. 
         Zwiera informacje na temat posiadanych przeze mnie umiejętności, wykonanych projektów oraz pozwala na skontaktowanie się ze mną z użyciem formularza.
@@ -36,29 +61,12 @@ export const projectsData = [
             'React',
             'TypeScript',
             'Sass',
-            'Jest',
-            'Enzyme'
+            'Jest'
         ],
         image: portfolio, 
         github: 'https://github.com/alszczep/portfolio',
-        demo: ''
-    },
-    {
-        id: 2,
-        name: 'Anime search engine',
-        descPl: `Wyszukiwarka pozwalająca na wyszukiwanie anime w bazie dostarczanej przez Jikan API. Wyniki wyświetlane są w postaci kart z odpowiednim obrazkiem i nazwą.
-        Po kliknięciu na kartę zostajemy przeniesieni do podstrony zwierającej informacje na temat wybranej animacji, takie jak krótki opis, lista odcinków, długość trwania, czy ocena.`,
-        descEng: `A search engine that lets you search for an anime among the data delivered by the Jikan API. 
-        Results are displayed in form of cards, which contain corresponding images and titles. 
-        By click on the card, you can go to a subpage, where you can see more details about the chosen animation, such as short description, episode list, duration, or rating.`,
-        tech: [
-            'React',
-            'JavaScript',
-            'Sass'
-        ],
-        image: ase, 
-        github: 'https://github.com/alszczep/anime-search-engine',
-        demo: 'https://alszczep-anime-search-engine.netlify.app/'
+        demo: '',
+        demoType: 'netlify'
     },
     {
         id: 3,
@@ -73,6 +81,7 @@ export const projectsData = [
         ],
         image: chess, 
         github: 'https://github.com/alszczep/chess',
-        demo: 'https://alszczep-chess.netlify.app'
+        demo: 'https://alszczep-chess.netlify.app',
+        demoType: 'netlify'
     }
 ]

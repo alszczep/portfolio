@@ -1,18 +1,19 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import ExternalLinks from './footer/ExternalLinks';
 import LangImages from './footer/LangImages';
 import AnimationsWrapper from './footer/AnimationsWrapper';
+import { FooterPropsInterface } from "../interfaces/props/FooterPropsInterface";
 
-const Footer: FC<any> = (props): JSX.Element => {
+const Footer: FC<FooterPropsInterface> = ({ setLang, setAnimations, animations }): JSX.Element => {
     return (
         <footer 
             className='footer'>
             <AnimationsWrapper 
-                setAnimations={props.setAnimations} 
-                animations={props.animations}/>
+                setAnimations={setAnimations} 
+                animations={animations}/>
             <ExternalLinks/>
             <LangImages 
-                setLang={props.setLang}/>
+                setLang={setLang}/>
         </footer>
     )
 }

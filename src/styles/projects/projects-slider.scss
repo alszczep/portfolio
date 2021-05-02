@@ -2,7 +2,7 @@
     @include flex-box(row, center, center);
     background-color: rgba(0, 0, 0, 0.20);
     border-radius: 10px;
-    height: 100px;
+    height: $sliderHeight;
     width: 100%;
     margin-bottom: 15px;
     &__chevron{
@@ -20,12 +20,20 @@
         background-color: rgba(255, 255, 255, 0.011);
     }
     &__list{
+        @include flex-box(row, center, center);
+        flex-wrap: wrap;
         text-align: center;
         height: 100%;
         width: 100%;
         overflow: hidden;
+        &-item{
+            height: $sliderHeight;
+            width: ($sliderHeight * 1.75);
+            position: relative;
+        }
         &-image{
             height: 100%;
+            width: 100%;
         }
         &-image:hover{
             filter:invert(10%);
@@ -33,6 +41,16 @@
         &-image.currentProject{
             box-sizing: border-box;
             border: 3px solid black;
+        }
+        &-label{
+            position: absolute;
+            left: 0px;
+            top: (($sliderHeight / 2) - ($labelHeight / 2));
+            width: 100%;
+            height: $labelHeight;
+            padding: 3px;
+            background-color: $labelBgColor;
+            font-size: 17px;
         }
     }
 }

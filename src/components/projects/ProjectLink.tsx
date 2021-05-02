@@ -1,25 +1,30 @@
-import React, { FC } from "react";
-import { SiNetlify, SiGithub } from 'react-icons/si';
+import { FC } from "react";
+import { SiNetlify, SiGithub, SiHeroku } from 'react-icons/si';
+import { ProjectLinkPropsInterface } from "../../interfaces/props/ProjectLinkPropsInterface";
 
-const ProjectLink: FC<any> = (props): JSX.Element => {
+const ProjectLink: FC<ProjectLinkPropsInterface> = ({ type, demoType, link }): JSX.Element => {
     return (
         <a 
-            className={`description__link description__link--${props.type}`} 
-            href={props.link} 
+            className={`description__link description__link--${type}`} 
+            href={link} 
             target='_blank' 
             rel='noreferrer'>
             {
-                props.type === 'github'? 
-                <SiGithub
-                    className='description__link-icon description__link-icon--github'
-                    color='white'/>: 
-                <SiNetlify 
-                    className='description__link-icon description__link-icon--demo'
-                    color='rgb(54,178,187)'/>
+                type === 'github'? 
+                    <SiGithub
+                        className='description__link-icon description__link-icon--github'
+                        color='white'/>: 
+                    demoType === 'netlify'?
+                        <SiNetlify 
+                            className='description__link-icon description__link-icon--demo'
+                            color='rgb(54,178,187)'/>:
+                        <SiHeroku 
+                            className='description__link-icon description__link-icon--demo'
+                            color='white'/>
             }
             <h1 
                 className='description__link-name'>
-                {props.type}
+                {type}
             </h1>
         </a>
     )

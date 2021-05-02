@@ -1,5 +1,3 @@
-@import './footer-variables.scss';
-
 .external-links{
     @include flex-box(row, center, center);
     height: 100%;

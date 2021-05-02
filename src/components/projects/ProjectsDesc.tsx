@@ -1,54 +1,60 @@
-import React, { FC, useContext } from "react";
+import { FC, useContext } from "react";
 import { LangContext } from "../../App";
+import { ProjectInterface } from "../../interfaces/ProjectInterface";
 import ProjectLink from "./ProjectLink";
 import TechBox from "./TechBox";
 
-const ProjectsDesc: FC<any> = (props): JSX.Element => {
+const ProjectsDesc: FC<{ project: ProjectInterface }> = ({ project }): JSX.Element => {
     const lang = useContext(LangContext)?.lang;
     return (
         <section 
             className='description'>
             <h1 
                 className='description__name'>
-                {props?.project?.name}
+                {project?.name}
             </h1>
             <section 
                 className='description__section description__section--left'>
                 {
                     lang === 'pl'? 
-                    props?.project?.descPl: 
-                    props?.project?.descEng
+                    project?.descPl: 
+                    project?.descEng
                 }
             </section>
             <section 
                 className='description__section description__section--right'>
                 <img 
                     className='description__image'
-                    src={props?.project?.image} 
-                    alt={props?.project?.id}/>
+                    src={project?.image} 
+                    alt={project?.name}/>
                 <section 
                     className='description__tech'>
                     {
-                        props?.project?.tech?.map((item: string, index: number) => {
-                            return <TechBox key={index + 1000} tech={item}/>;
+                        project?.tech?.map((item: string, index: number) => {
+                            return (
+                                <TechBox 
+                                    key={index + 1000} 
+                                    tech={item}/>
+                            );
                         })
                     }
                 </section>
                 <section 
                     className='description__links'>
                     {
-                        props?.project?.github? 
+                        project?.github? 
                         <ProjectLink 
                             type={'github'} 
-                            link={props?.project?.github}/>: 
+                            link={project?.github}/>: 
                         ''
                     }
                     {
-                        props?.project?.demo? 
+                        project?.demo? 
                         <ProjectLink 
                             type={'demo'} 
-                            link={props?.project?.demo}/>: 
-                            ''
+                            demoType={project?.demoType}
+                            link={project?.demo}/>: 
+                        ''
                     }
                 </section>
             </section>

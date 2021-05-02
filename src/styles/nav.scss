@@ -1,11 +1,3 @@
-@import './mixins.scss';
-
-$navBgColor: rgba(0, 0, 0, 0.14);
-$navHoverBgColor: rgba(0, 0, 0, 0.20);
-$navActiveBgColor: rgba(0, 0, 0, 0.75);
-$navActiveHoverBgColor: rgba(0, 0, 0, 0.65);
-$mobileNavHeight: 50px;
-
 .navigation{
     position: fixed;
     top: 0px;

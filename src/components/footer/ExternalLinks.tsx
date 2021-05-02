@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { SiGithub } from "react-icons/si";
 
 const ExternalLinks: FC<any> = (): JSX.Element => {

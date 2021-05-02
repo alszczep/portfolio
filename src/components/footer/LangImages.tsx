@@ -1,6 +1,6 @@
 import pl_flag from './../../images/lang-icons/pl_flag.svg';
 import uk_flag from './../../images/lang-icons/uk_flag.svg';
-import React, { FC } from "react";
+import { FC } from "react";
 
 const LangImages: FC<any> = (props): JSX.Element => {
     return (

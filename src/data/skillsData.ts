@@ -1,21 +1,20 @@
-import { SiTypescript, SiReact, SiJest, SiJavascript, SiGit} from 'react-icons/si';
+import { SiTypescript, SiReact, SiJest, SiJavascript, SiGit, SiNodeDotJs } from 'react-icons/si';
 import { FaSass } from 'react-icons/fa';
 import html5 from './../images/skill-icons/html5.svg';
 import css3 from './../images/skill-icons/css3.svg';
 import mysql from './../images/skill-icons/mysql.svg';
 import vscode from './../images/skill-icons/vscode.svg';
+import postgresql from './../images/skill-icons/postgresql.svg';
 export const skillsData = [
     {
         name: 'HTML5',
         icon: html5,
-        iconColor: 'rgb(240,100,40)',
         iconType: 'custom',
         style: {}
     },
     {
         name: 'CSS3',
         icon: css3,
-        iconColor: 'rgb(39,169,224)',
         iconType: 'custom',
         style: {}
     },
@@ -31,14 +30,14 @@ export const skillsData = [
         icon: SiJavascript,
         iconColor: 'rgb(247,224,24)',
         iconType: 'react-icon',
-        style: {background: 'black'}
+        style: { backgroundColor: 'black' }
     },
     {
         name: 'TypeScript',
         icon: SiTypescript,
         iconColor: 'rgb(0,122,204)',
         iconType: 'react-icon',
-        style: {background: 'white'}
+        style: { backgroundColor: 'white' }
     },
     {
         name: 'React',
@@ -48,17 +47,29 @@ export const skillsData = [
         style: {}
     },
     {
-        name: 'Jest',
-        icon: SiJest,
-        iconColor: 'rgb(153,66,91)',
+        name: 'Node',
+        icon: SiNodeDotJs,
+        iconColor: 'rgb(104,180,99)',
         iconType: 'react-icon',
         style: {}
     },
     {
-        name: 'MySql',
-        icon: mysql,
-        iconColor: 'rgb(1,99,138)',
+        name: 'PostgreSQL',
+        icon: postgresql,
         iconType: 'custom',
+        style: {}
+    },
+    {
+        name: 'MySQL',
+        icon: mysql,
+        iconType: 'custom',
+        style: {}
+    },
+    {
+        name: 'Jest',
+        icon: SiJest,
+        iconColor: 'rgb(153,66,91)',
+        iconType: 'react-icon',
         style: {}
     },
     {
@@ -71,7 +82,6 @@ export const skillsData = [
     {
         name: 'Visual Studio Code',
         icon: vscode,
-        iconColor: 'rgb(13,134,209)',
         iconType: 'custom',
         style: {}
     }

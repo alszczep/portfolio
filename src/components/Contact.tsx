@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useReducer, useState } from "react";
+import { FC, useContext, useEffect, useReducer, useState } from "react";
 import { resizeHandler } from "../modules/main-resize-handler";
 import { LangContext } from "../App";
 import { formInitialState, formReducer } from "../modules/form-reducer";
@@ -6,7 +6,7 @@ import { FormStatusInterface } from "../interfaces/FormStatusInterface";
 import { refreshPage } from "../modules/contact/refresh-page";
 import { submitHandler } from "../modules/contact/submit-handler";
 
-const Contact: FC<any> = (props): JSX.Element => {
+const Contact: FC<any> = (): JSX.Element => {
     const langData = useContext(LangContext)?.data?.contactPage;
     const [formState, formDispatch] = useReducer(formReducer, formInitialState);
     const [formStatus, setFormStatus] = useState<FormStatusInterface>();

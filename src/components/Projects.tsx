@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { projectsData } from "../data/projectsData";
 import { ProjectInterface } from "../interfaces/ProjectInterface";
 import { resizeHandler } from "../modules/main-resize-handler";

@@ -1,8 +1,8 @@
-import React, { FC, useContext } from "react";
+import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
 import { LangContext } from "./../../App";
 
-const Links: FC<{device: string}> = ({device}): JSX.Element => {
+const Links: FC<{device: string}> = ({ device }): JSX.Element => {
     const nav = useContext(LangContext)?.data?.nav;
     return (
     <>
